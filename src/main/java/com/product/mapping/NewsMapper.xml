@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.product.model.News" >
+    <id column="n_id" property="nId" jdbcType="INTEGER" />
+    <result column="n_title" property="nTitle" jdbcType="VARCHAR" />
+    <result column="n_content" property="nContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    n_id, n_title, n_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_news
+    where n_id = #{nId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_news
+    where n_id = #{nId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.product.model.News" >
+    insert into tb_news (n_id, n_title, n_content
+      )
+    values (#{nId,jdbcType=INTEGER}, #{nTitle,jdbcType=VARCHAR}, #{nContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.product.model.News" >
+    insert into tb_news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        n_id,
+      </if>
+      <if test="nTitle != null" >
+        n_title,
+      </if>
+      <if test="nContent != null" >
+        n_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        #{nId,jdbcType=INTEGER},
+      </if>
+      <if test="nTitle != null" >
+        #{nTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="nContent != null" >
+        #{nContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.product.model.News" >
+    update tb_news
+    <set >
+      <if test="nTitle != null" >
+        n_title = #{nTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="nContent != null" >
+        n_content = #{nContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where n_id = #{nId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.product.model.News" >
+    update tb_news
+    set n_title = #{nTitle,jdbcType=VARCHAR},
+      n_content = #{nContent,jdbcType=VARCHAR}
+    where n_id = #{nId,jdbcType=INTEGER}
+  </update>
+</mapper>

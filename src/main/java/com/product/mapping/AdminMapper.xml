@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.AdminMapper" >
+  <resultMap id="BaseResultMap" type="com.product.model.Admin" >
+    <id column="a_id" property="aId" jdbcType="INTEGER" />
+    <result column="a_name" property="aName" jdbcType="VARCHAR" />
+    <result column="a_passwd" property="aPasswd" jdbcType="VARCHAR" />
+    <result column="a_timestamp" property="aTimestamp" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select a_name, a_passwd
+    from tb_admin where a_name = #{aName,jdbcType=VARCHAR}
+  </select>
+  
+  <update id="updateByName" parameterType="com.product.model.Admin" >
+    update tb_admin
+    <set >
+      <if test="aPasswd != null" >
+        a_passwd = #{aPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="aTimestamp != null" >
+        a_timestamp = #{aTimestamp,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where a_name = #{aName,jdbcType=VARCHAR}
+  </update>
+</mapper>

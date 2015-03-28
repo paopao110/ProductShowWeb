@@ -16,15 +16,13 @@ import com.product.service.DemoServiceI;
 public class DemoController {
 	
 	private DemoServiceI demoService;
-	public DemoServiceI getDemoService() {
-		return demoService;
-	}
+
 	@Autowired
-	public void setDemoService(DemoServiceI demoService) {
+	public DemoController(DemoServiceI demoService){
 		this.demoService = demoService;
 	}
 
-	@RequestMapping("{id}/query")
+	@RequestMapping("{id}/querydem123122221")
 	public ModelAndView query(@PathVariable Integer id,HttpServletRequest request){
 		Demo demo = demoService.queryDemoById(id);
 		System.out.println("===================");

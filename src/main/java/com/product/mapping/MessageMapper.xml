@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.MessageMapper" >
+  <resultMap id="BaseResultMap" type="com.product.model.Message" >
+    <id column="m_id" property="mId" jdbcType="INTEGER" />
+    <result column="m_username" property="mUsername" jdbcType="VARCHAR" />
+    <result column="m_tel" property="mTel" jdbcType="VARCHAR" />
+    <result column="m_content" property="mContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    m_id, m_username, m_tel, m_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_message
+    where m_id = #{mId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_message
+    where m_id = #{mId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.product.model.Message" >
+    insert into tb_message (m_id, m_username, m_tel, 
+      m_content)
+    values (#{mId,jdbcType=INTEGER}, #{mUsername,jdbcType=VARCHAR}, #{mTel,jdbcType=VARCHAR}, 
+      #{mContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.product.model.Message" >
+    insert into tb_message
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mId != null" >
+        m_id,
+      </if>
+      <if test="mUsername != null" >
+        m_username,
+      </if>
+      <if test="mTel != null" >
+        m_tel,
+      </if>
+      <if test="mContent != null" >
+        m_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mId != null" >
+        #{mId,jdbcType=INTEGER},
+      </if>
+      <if test="mUsername != null" >
+        #{mUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="mTel != null" >
+        #{mTel,jdbcType=VARCHAR},
+      </if>
+      <if test="mContent != null" >
+        #{mContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.product.model.Message" >
+    update tb_message
+    <set >
+      <if test="mUsername != null" >
+        m_username = #{mUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="mTel != null" >
+        m_tel = #{mTel,jdbcType=VARCHAR},
+      </if>
+      <if test="mContent != null" >
+        m_content = #{mContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.product.model.Message" >
+    update tb_message
+    set m_username = #{mUsername,jdbcType=VARCHAR},
+      m_tel = #{mTel,jdbcType=VARCHAR},
+      m_content = #{mContent,jdbcType=VARCHAR}
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.ImagesMapper" >
+  <resultMap id="BaseResultMap" type="com.product.model.Images" >
+    <id column="i_id" property="iId" jdbcType="INTEGER" />
+    <result column="p_id" property="pId" jdbcType="INTEGER" />
+    <result column="i_url" property="iUrl" jdbcType="VARCHAR" />
+    <result column="i_description" property="iDescription" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    i_id, p_id, i_url, i_description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_images
+    where i_id = #{iId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_images
+    where i_id = #{iId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.product.model.Images" >
+    insert into tb_images (i_id, p_id, i_url, 
+      i_description)
+    values (#{iId,jdbcType=INTEGER}, #{pId,jdbcType=INTEGER}, #{iUrl,jdbcType=VARCHAR}, 
+      #{iDescription,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.product.model.Images" >
+    insert into tb_images
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iId != null" >
+        i_id,
+      </if>
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="iUrl != null" >
+        i_url,
+      </if>
+      <if test="iDescription != null" >
+        i_description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iId != null" >
+        #{iId,jdbcType=INTEGER},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="iUrl != null" >
+        #{iUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iDescription != null" >
+        #{iDescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.product.model.Images" >
+    update tb_images
+    <set >
+      <if test="pId != null" >
+        p_id = #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="iUrl != null" >
+        i_url = #{iUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iDescription != null" >
+        i_description = #{iDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where i_id = #{iId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.product.model.Images" >
+    update tb_images
+    set p_id = #{pId,jdbcType=INTEGER},
+      i_url = #{iUrl,jdbcType=VARCHAR},
+      i_description = #{iDescription,jdbcType=VARCHAR}
+    where i_id = #{iId,jdbcType=INTEGER}
+  </update>
+</mapper>
