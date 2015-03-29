@@ -6,7 +6,9 @@ public class Message {
     private String mUsername;
 
     private String mTel;
-
+    
+    private String mEmail;
+    
     private String mContent;
 
     public Integer getmId() {
@@ -31,9 +33,17 @@ public class Message {
 
     public void setmTel(String mTel) {
         this.mTel = mTel == null ? null : mTel.trim();
-    }
+    }   
+    
+    public String getmEmail() {
+		return mEmail;
+	}
 
-    public String getmContent() {
+	public void setmEmail(String mEmail) {
+		this.mEmail = mEmail;
+	}
+
+	public String getmContent() {
         return mContent;
     }
 

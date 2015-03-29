@@ -4,7 +4,9 @@ public class Images {
     private Integer iId;
 
     private Integer pId;
-
+    
+    private Integer nId;
+    
     private String iUrl;
 
     private String iDescription;
@@ -24,8 +26,16 @@ public class Images {
     public void setpId(Integer pId) {
         this.pId = pId;
     }
+    
+    public Integer getnId() {
+		return nId;
+	}
 
-    public String getiUrl() {
+	public void setnId(Integer nId) {
+		this.nId = nId;
+	}
+
+	public String getiUrl() {
         return iUrl;
     }
 

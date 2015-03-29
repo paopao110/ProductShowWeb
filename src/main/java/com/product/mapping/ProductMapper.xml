@@ -4,68 +4,60 @@
   <resultMap id="BaseResultMap" type="com.product.model.Product" >
     <id column="p_id" property="pId" jdbcType="INTEGER" />
     <result column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="p_title" property="pTitle" jdbcType="VARCHAR" />
     <result column="p_summary" property="pSummary" jdbcType="VARCHAR" />
+    <result column="p_content" property="pContent" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Base_Column_List" >
-    p_id, s_id, p_summary
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from tb_product
-    where p_id = #{pId,jdbcType=INTEGER}
+  
+  <resultMap id="ProductResultMap" type="com.product.model.Product" extends="BaseResultMap">
+    <collection property="images" javaType="list" ofType="com.product.model.Images" >
+    	<id column="i_id" property="iId" jdbcType="INTEGER" />
+    	<result column="i_url" property="iUrl" jdbcType="VARCHAR" />
+    	<result column="i_description" property="iDescription" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+
+  <select id="selectByPrimaryKey" resultMap="ProductResultMap" parameterType="java.lang.Integer" >
+    select p.p_id, s_id,p_title, p_summary,p_content,i_id,i_url,i_description from tb_product as p,tb_images as i
+    where p.p_id = #{pId,jdbcType=INTEGER} and p.p_id=i.p_id
   </select>
+  
+  
+  
+  <select id="selectByPaging" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select p_id, s_id,p_title, p_summary,p_content from tb_product order by p_id desc limit #{param1},#{param2}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from tb_product
-    where p_id = #{pId,jdbcType=INTEGER}
+    delete from tb_product where p_id = #{pId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.product.model.Product" >
-    insert into tb_product (p_id, s_id, p_summary
-      )
-    values (#{pId,jdbcType=INTEGER}, #{sId,jdbcType=INTEGER}, #{pSummary,jdbcType=VARCHAR}
-      )
-  </insert>
+
   <insert id="insertSelective" parameterType="com.product.model.Product" >
     insert into tb_product
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="pId != null" >
-        p_id,
-      </if>
-      <if test="sId != null" >
-        s_id,
-      </if>
-      <if test="pSummary != null" >
-        p_summary,
-      </if>
+      <if test="pId != null" >p_id,</if>
+      <if test="sId != null">s_id,</if>
+      <if test="pTitle != null">p_title,</if>
+      <if test="pSummary != null">p_summary,</if>
+      <if test="pContent != null">p_content,</if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="pId != null" >
-        #{pId,jdbcType=INTEGER},
-      </if>
-      <if test="sId != null" >
-        #{sId,jdbcType=INTEGER},
-      </if>
-      <if test="pSummary != null" >
-        #{pSummary,jdbcType=VARCHAR},
-      </if>
+      <if test="pId != null" >#{pId,jdbcType=INTEGER},</if>
+      <if test="sId != null" >#{sId,jdbcType=INTEGER},</if>
+      <if test="pTitle != null" >#{pTitle,jdbcType=VARCHAR},</if>
+      <if test="pSummary != null" >#{pSummary,jdbcType=VARCHAR},</if>
+      <if test="pContent != null" >#{pContent,jdbcType=VARCHAR},</if>
     </trim>
   </insert>
+  
   <update id="updateByPrimaryKeySelective" parameterType="com.product.model.Product" >
     update tb_product
-    <set >
-      <if test="sId != null" >
-        s_id = #{sId,jdbcType=INTEGER},
-      </if>
-      <if test="pSummary != null" >
-        p_summary = #{pSummary,jdbcType=VARCHAR},
-      </if>
+    <set>
+      <if test="sId != null" > s_id = #{sId,jdbcType=INTEGER},</if>
+      <if test="pTitle != null" > p_title = #{pTitle,jdbcType=VARCHAR},</if>
+      <if test="pSummary != null" > p_summary = #{pSummary,jdbcType=VARCHAR},</if>
+      <if test="pContent != null" >p_content = #{pContent,jdbcType=VARCHAR},</if>
     </set>
-    where p_id = #{pId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.product.model.Product" >
-    update tb_product
-    set s_id = #{sId,jdbcType=INTEGER},
-      p_summary = #{pSummary,jdbcType=VARCHAR}
     where p_id = #{pId,jdbcType=INTEGER}
   </update>
 </mapper>

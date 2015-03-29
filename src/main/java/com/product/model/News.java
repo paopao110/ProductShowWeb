@@ -1,5 +1,7 @@
 package com.product.model;
 
+import java.util.List;
+
 public class News {
     private Integer nId;
 
@@ -7,6 +9,8 @@ public class News {
 
     private String nContent;
 
+    private List<Images> images;
+    
     public Integer getnId() {
         return nId;
     }
@@ -30,4 +34,15 @@ public class News {
     public void setnContent(String nContent) {
         this.nContent = nContent == null ? null : nContent.trim();
     }
+
+	public List<Images> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Images> images) {
+		this.images = images;
+	}
+
+	
+
 }

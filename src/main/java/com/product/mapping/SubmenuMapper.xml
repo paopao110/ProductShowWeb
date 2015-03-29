@@ -7,22 +7,23 @@
   </resultMap>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select s_id, s_title from tb_submenu where s_id = #{sId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAllSubmenu" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select s_id, s_title from tb_submenu
-    where s_id = #{sId,jdbcType=INTEGER}
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from tb_submenu
-    where s_id = #{sId,jdbcType=INTEGER}
+    delete from tb_submenu where s_id = #{sId,jdbcType=INTEGER}
   </delete>
   
   <insert id="insert" parameterType="com.product.model.Submenu" >
-    insert into tb_submenu (s_id, s_title)
-    values (#{sId,jdbcType=INTEGER}, #{sTitle,jdbcType=VARCHAR})
+    insert into tb_submenu (s_id, s_title) values (#{sId,jdbcType=INTEGER}, #{sTitle,jdbcType=VARCHAR})
   </insert>
   
   <update id="updateByPrimaryKey" parameterType="com.product.model.Submenu" >
-    update tb_submenu set s_title = #{sTitle,jdbcType=VARCHAR}
-    where s_id = #{sId,jdbcType=INTEGER}
+    update tb_submenu set s_title = #{sTitle,jdbcType=VARCHAR} where s_id = #{sId,jdbcType=INTEGER}
   </update>
+  
 </mapper>
