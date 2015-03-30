@@ -33,6 +33,7 @@
 	<mvc:resources location="/src/js/" mapping="/js/*"/>
 	<mvc:resources location="/src/css/" mapping="/css/*"/>
 	<mvc:resources location="/src/images/" mapping="/images/*"/>
+	<mvc:resources location="/src/img/" mapping="/img/*"/>
 	<mvc:default-servlet-handler/>
 	
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->

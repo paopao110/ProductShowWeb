@@ -29,6 +29,16 @@ public class DemoController {
 		if(demo!=null){
 			request.setAttribute("demo", demo);
 		}
-		return new ModelAndView("test");
+		return new ModelAndView("front/index");
+	}
+	
+	@RequestMapping("/index")
+	public ModelAndView index(){
+		return new ModelAndView("front/index");
+	}
+	
+	@RequestMapping("/contact")
+	public ModelAndView contact(){
+		return new ModelAndView("front/contact");
 	}
 }
