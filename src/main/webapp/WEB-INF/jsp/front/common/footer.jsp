@@ -9,12 +9,12 @@
 	</section>
 	<nav>
 		<ul id="footer_menu">
-			<li class="current-menu-item"><a href="./index.html">首页</a></li>
-			<li><a href="./about.htm.html">公司简介</a></li>
-			<li><a href="./blog.htm.html">产品展示</a></li>
-			<li><a href="./typography.htm.html">技术专利</a></li>
+			<li><a href="<%=request.getContextPath()%>/index">首页</a></li>
+			<li><a href="<%=request.getContextPath()%>/about">公司简介</a></li>
+			<li><a href="<%=request.getContextPath()%>/product">产品展示</a></li>
+			<li><a href="#">技术专利</a></li>
 			<!-- <li><a href="./portfolio.htm.html">Portfolio</a></li> -->
-			<li><a href="./contact.htm.html">联系我们</a></li>
+			<li><a href="<%=request.getContextPath()%>/contact">联系我们</a></li>
 		</ul>
 	</nav>
 	<p class="copyright">

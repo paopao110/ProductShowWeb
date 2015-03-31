@@ -31,30 +31,9 @@
 			
 			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum, dolor sit amet, varius laoreet. Morbi justo.<br /> <strong>Phasellus adipiscing</strong>.</p>
 			
-			<div class="contact-data">
-				<p><strong>联系方式:</strong></p>
-				
-				<dl>
-					<dt>E-mail:</dt>
-					<dd><a href="mailto:contact@newcore.com">contact@newcore.com</a></dd>
-				</dl>
-				
-				<dl>
-					<dt>联系电话:</dt>
-					<dd>555 124 555</dd>
-				</dl>
-				<dl>
-					<dt>&nbsp;</dt>
-					<dd>555 124 554</dd>
-				</dl>
-				
-			</div>
+			<jsp:include page="common/contactbar.jsp"></jsp:include>
 			
-			<div class="contact-data">
-				<p><strong>联系地址:</strong></p>
-				<p>Seint - Merri 50/01</p>
-				<p>Pairs, France</p>
-			</div>
+			
 
 		</div>
 		<!-- END INFORMATIONS -->

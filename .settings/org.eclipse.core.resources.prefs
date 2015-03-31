@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/jsp/front/common/contactbar.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/front/common/footer.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/front/common/header/header_home.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/front/common/rightbar.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/front/product.jsp=UTF-8
 encoding/<project>=UTF-8
