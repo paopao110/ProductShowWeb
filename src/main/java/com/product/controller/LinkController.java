@@ -27,6 +27,11 @@ public class LinkController {
 		return new ModelAndView("front/product_full");
 	}
 	
+	@RequestMapping("/patent")
+	public ModelAndView linkPatent(){
+		return new ModelAndView("front/patent");
+	}
+	
 	@RequestMapping("/contact")
 	public ModelAndView linkContact(){
 		return new ModelAndView("front/contact");

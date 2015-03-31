@@ -12,7 +12,8 @@
 				<a href="<%=request.getContextPath()%>/product">产品展示</a>
 			</li>
 			<li>
-				<a href="#">技术专利</a>
+				<a href="<%=request.getContextPath()%>/patent">技术专利</a>
+				<!-- 
 				<ul>
 					<li>
 						<a href="./columns.htm.html">Columns</a>
@@ -24,6 +25,7 @@
 						<a href="./typography.htm.html">Typography</a>
 					</li>
 				</ul>
+				 -->
 			</li>
 			<!-- 
 			<li>
