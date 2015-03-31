@@ -10,7 +10,7 @@
 <div id="page">
 
 	<!-- BEGIN TITLEBAR -->
-	<jsp:include page="common/header.jsp"></jsp:include>
+	<jsp:include page="common/header/header_about.jsp"></jsp:include>
 	<!-- END TITLEBAR -->
 
 

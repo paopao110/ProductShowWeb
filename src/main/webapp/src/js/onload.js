@@ -374,7 +374,7 @@ $(document).ready(function(){
 		// Get the data from the form
 		var name	= $('#contact #name').val();
 		var email	= $('#contact #email').val();
-		var subject	= $('#contact #subject').val();
+		var telphone	= $('#contact #telphone').val();
 		var message	= $('#contact #message').val();
 
 
@@ -404,11 +404,13 @@ $(document).ready(function(){
 			cache: false
 		});
 		
-		var dataString = 'name='+ name + '&email=' + email + '&subject=' + subject + '&message=' + message;  
+		var dataString = 'name='+ name + '&email=' + email + '&telphone=' + telphone + '&message=' + message;  
+		
+		console.log(dataString);
 		
 		$.ajax({
 			type: "POST",
-			url: "php/submit-form-ajax.php",
+			url: "sendMessage?"+dataString,
 			data: dataString,
 			success: function(msg) {
 				
@@ -419,13 +421,13 @@ $(document).ready(function(){
 	
 				} else {
 					$('#contact .button').fadeIn('fast');
-					alert('The problem with sending it, please try again!');
+					alert('信息正在提交，请稍后!');
 				}
 				
 			},
 
 			error: function(ob,errStr) {
-				alert('The problem with sending it, please try again.');
+				alert('您的问题未被成功提交，请重新提交，谢谢.');
 				
 			}
 		});

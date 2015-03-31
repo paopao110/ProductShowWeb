@@ -10,7 +10,7 @@
 <div id="page">
 
 	<!-- BEGIN TITLEBAR -->
-	<jsp:include page="common/header.jsp"></jsp:include>
+	<jsp:include page="common/header/header_home.jsp"></jsp:include>
 	<!-- END TITLEBAR -->
 	<div class="copyrights">Collect from #</div>
 

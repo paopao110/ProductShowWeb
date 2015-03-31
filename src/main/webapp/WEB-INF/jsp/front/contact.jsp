@@ -11,7 +11,7 @@
 <div id="page">
 
 	<!-- BEGIN TITLEBAR -->
-	<jsp:include page="common/header.jsp"></jsp:include>
+	<jsp:include page="common/header/header_contact.jsp"></jsp:include>
 	<!-- END TITLEBAR -->
 
 
@@ -65,7 +65,7 @@
 		
 			<h3><strong>有什么问题，发给我们吧</strong></h3>
 			
-			<form action="#" id="contact" />
+			<form action="#" id="contact" method="post">
 				<fieldset class="form">
 					<ul>
 						<li>
@@ -93,8 +93,8 @@
 					</p>
 				</fieldset>
 				<fieldset class="thanks">
-					<h3>Mail Sent</h3>
-					<p>We will reply as soon as possible.</p>
+					<h3><strong><font color="green">提交成功</font></strong></h3>
+					<p>我们会很快给您一个答复.</p>
 				</fieldset>
 			</form>
 		
