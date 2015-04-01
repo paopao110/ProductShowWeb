@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>关于我们</title>
+	<title>公司简介</title>
 	<jsp:include page="common/headerSrc.jsp"></jsp:include>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
@@ -22,8 +22,8 @@
 		</header>
 
 		<div class="cite_box">
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <strong>Facilisis, ante ipsum ultricies a, blandit lobortis.</strong></p>
-			<p>In lobortis magna sapien, lacinia id, ultrices bibendum, sem vitae metus.</p>
+			<p>说点啥呢 <strong>瞎说点东西吧</strong></p>
+			<p>真sss</p>
 		</div>
 	
 		<h2>公司 <strong>简介</strong></h2>
@@ -62,6 +62,7 @@
 	<section class="columns page_text about_summary clear">
 
 		<!-- BEGIN 1 COLUMN -->
+		<!-- 
 		<div class="column column_33">
 			<section class="tabs">
 				<nav>
@@ -83,9 +84,27 @@
 				</article>
 			</section>
 		</div>
+		-->
 		<!-- END 1 COLUMN -->
+		 
+		<!-- BEGIN 3 COLUMN -->
+		<div class="column column_33 reviews">
+			<h1>Reviews</h1>
+			<figure class="photo">
+				<img src="<%=request.getContextPath()%>/src/img/examples/about_us_reviews.jpg" alt="Adam K." />
+				<figcaption class="author">
+					<span>Adam K.</span>
+					<a href="#">Activden.net</a>
+				</figcaption>
+			</figure>
+			
+			<article>
+				<p>Suspendisse placerat sagittis ultricies. Nullam fermentum diam in augue. Sed sagittis ac, laoreet sit amet, diam. Praesent eu lorem. Nam sed urna. Duis vulputate mi, eu nibh.</p>
 
-
+				<p><strong>Donec sit amet dolor! Fusce porttitor, arcu vitae massa.</strong></p>
+			</article>
+		</div>
+		<!-- END 3 COLUMN -->
 		<!-- BEGIN 2 COLUMN -->
 		<div class="column column_33 experience">
 			<h1>Experience</h1>
@@ -104,12 +123,11 @@
 		<!-- BEGIN 3 COLUMN -->
 		<div class="column column_33 reviews">
 			<h1>Reviews</h1>
-
 			<figure class="photo">
 				<img src="<%=request.getContextPath()%>/src/img/examples/about_us_reviews.jpg" alt="Adam K." />
 				<figcaption class="author">
 					<span>Adam K.</span>
-					<a href="http://activden.net/">Activden.net</a>
+					<a href="#">Activden.net</a>
 				</figcaption>
 			</figure>
 			

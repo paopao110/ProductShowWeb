@@ -54,56 +54,52 @@
 	<!-- BEGIN LATEST POSTS -->
 	<section class="home_latest_posts page_text columns">
 
-		<h1><strong>Lastest</strong> posts from our blog</h1>
-
+		<h1><strong>公司简介</strong></h1>
 		<!-- BEGIN 1 COLUMN -->
 		<div class="column column_25">
-
-			<p class="date">Add: Jan 03 2012</p>
-
+			<p></p>
+			<a href="<%=request.getContextPath() %>/about" class="photo">
+				<span class="more">点击查看详细信息</span>
+				<img src="<%=request.getContextPath() %>/src/img/examples/blog_latest_small_1.jpg" alt="" />
+			</a>
+			<!-- 
 			<header>
 				<span class="cloud text">
 					<span class="arrow"></span>
 				</span>
-				<strong>Etiam at consectetuer ut, laoreet purus est…</strong>
+				<h1><strong>XXX方涵有限公司</strong></h1>
 			</header>
-
-			<a href="#" class="photo">
-				<span class="more">more</span>
-				<img src="<%=request.getContextPath() %>/src/img/examples/blog_latest_small_1.jpg" alt="" />
-			</a>
-
-			<p>In accumsan et, bibendum varius ac, vulputate fringilla. In hac habitasse platea dictumst.</p>
-
-			<p class="more"><a href="#">Read more…</a></p>
-
+			
+			<p>魅族公司成立于2003年。创始人从小沉迷电子热爱科技，魅族就是电子梦想和共赢理念的结晶。从创立以来的一次次飞跃不仅是魅族人热爱追求的结果，更是梦想力量的体现。</p>
+			<p class="more"><a href="<%=request.getContextPath() %>/about">更多>></a></p>
+			 -->
 		</div>
 		<!-- END 1 COLUMN -->
 		
 		
 		<!-- BEGIN 2 COLUMN -->
-		<div class="column column_25">
+		<div class="column column_75">
 
-			<p class="date">Add: Jan 03 2012</p>
-
+			<p class="date"></p>
+			<!-- 
 			<header>
 				<span class="cloud text">
 					<span class="arrow"></span>
 				</span>
 				<strong>Gravida. In quam at ipsum dolor cursus ante.</strong>
 			</header>
+			 -->
+			<p>过去20多年，华为抓住中国改革开放和ICT行业高速发展带来的历史机遇，坚持以客户为中心，以奋斗者为本，基于客户需求持续创新，赢得了客户的尊重和信赖，从一家立足于中国深圳特区，初始资本只有21000人民币的民营企业，稳健成长为年销售规模近2400亿人民币的世界500强公司。如今，我们的电信网络设备、IT设备和解决方案以及智能终端已应用于全球170多个国家和地区。...</p>
 
-			<p>Donec eros. Curabitur quis leo. Suspendisse sapien. Maecenas eu mauris. Pellentesque mattis magna. Cum sociis natoque penatibus et malesuada fames ac pede. Vestibulum egestas risus at est pretium convallis. Fusce nisl risus, euismod pede, molestie lorem hendrerit eget, aliquet eget, facilisis metus...</p>
-
-			<p class="more"><a href="#">Read more…</a></p>
+			<p class="more"><a href="<%=request.getContextPath() %>/about">查看更多</a></p>
 
 		</div>
 		<!-- END 2 COLUMN -->
 
-
+		
 		<!-- BEGIN 3 COLUMN -->
+		<!-- 
 		<div class="column column_25">
-
 			<p class="date">Add: Jan 03 2012</p>
 
 			<header>
@@ -123,10 +119,12 @@
 			<p class="more"><a href="#">Read more…</a></p>
 
 		</div>
+		 -->
 		<!-- END 3 COLUMN -->
 
 
 		<!-- BEGIN 4 COLUMN -->
+		<!-- 
 		<div class="column column_25">
 
 			<p class="date">Add: Jan 03 2012</p>
@@ -148,6 +146,7 @@
 			<p class="more"><a href="#">Read more…</a></p>
 
 		</div>
+		 -->
 		<!-- END 4 COLUMN -->
 	
 	</section>
@@ -156,28 +155,18 @@
 
 	<!-- START INFORMATIONS -->
 	<section class="home_info page_text columns">
-	
-		<a href="#" class="column column_33">
-			<h1>Who <strong>We</strong> are?</h1>
+		<p></p>
+		<h1><strong>技术专利</strong></h1>
+		<%for(int i=0;i<3;i++){ %>
+		<a href="<%=request.getContextPath() %>/patent_full" class="column column_33">
+			<h1><strong>专利一</strong></h1>
 			<span class="arrow"></span>
-			<header></header>
+			<img src="<%=request.getContextPath() %>/src/img/examples/blog_latest_small_3.jpg" alt="" />
+			<!-- <header></header> -->
 			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Odio, a quam at justo. Aenean commodo wisi. Sed diam felis, feugiat tempus.</p>
+			
 		</a>
-		
-		<a href="#" class="column column_33">
-			<h1><strong>Our skills</strong> and <strong>abilities</strong></h1>
-			<span class="arrow"></span>
-			<header></header>
-			<p>Nunc sit amet, consectetuer adipiscing elit. Curabitur gravida massa quis leo. <em class="blue"><u>Suspendisse at metus,</u></em>. Nameu. Metus, ullamcorper ut...</p>
-		</a>
-		
-		<a href="#" class="column column_333">
-			<h1>What about <strong>photo</strong> and <strong>video</strong>?</h1>
-			<span class="arrow"></span>
-			<header></header>
-			<p>Etiam dictum arcu. Etiam blandit eros, sit amet, neque. Praesent eu condimentum quam. Donec ornare velit sed turpis.</p>
-		</a>
-
+		<%} %>
 	</section>
 	<!-- END INFORMATIONS -->
 
@@ -194,37 +183,14 @@
 
 		<div id="slider_portfolio">
 			<ul>
+				<%for(int i=0;i<3;i++) {%>
 				<li class="column">
-					<a href="./portfolio-projekt.htm.html">
+					<a href="<%=request.getContextPath() %>/product_full">
 						<span></span>
 						<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_small_1.jpg" alt="" />
 					</a>
 				</li>
-				<li class="column">
-					<a href="./portfolio-projekt.htm.html">
-						<span></span>
-						<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_small_2.jpg" alt="" />
-					</a>
-				</li>
-				
-				<li class="column">
-					<a href="./portfolio-projekt.htm.html">
-						<span></span>
-						<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_small_3.jpg" alt="" />
-					</a>
-				</li>
-				<li class="column">
-					<a href="./portfolio-projekt.htm.html">
-						<span></span>
-						<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_small_4.jpg" alt="" />
-					</a>
-				</li>
-				<li class="column">
-					<a href="./portfolio-projekt.htm.html">
-						<span></span>
-						<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_small_5.jpg" alt="" />
-					</a>
-				</li>
+				<%} %>
 			</ul>
 		</div>
 

@@ -27,9 +27,9 @@
 		<!-- BEGIN INFORMATIONS -->
 		<div class="column column_25">
 		
-			<h3>Info</h3>
+			<h3>说点啥</h3>
 			
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum, dolor sit amet, varius laoreet. Morbi justo.<br /> <strong>Phasellus adipiscing</strong>.</p>
+			<p>瞎说点啥吧，啊啊啊<br /> <strong>有没有戏呢，看看再说吧</strong>.</p>
 			
 			<jsp:include page="common/contactbar.jsp"></jsp:include>
 			
@@ -48,22 +48,22 @@
 				<fieldset class="form">
 					<ul>
 						<li>
-							<label>* 称呼:</label>
+							<label>* 称呼(必填):</label>
 							<input type="text" id="name" class="req" />
 						</li>
 						
 						<li>
-							<label>* 联系电话:</label>
+							<label>* 联系电话(必填):</label>
 							<input type="text" id="telphone" class="req"/>
 						</li>
 
 						<li>
-							<label>* E-mail:</label>
+							<label>* E-mail(必填):</label>
 							<input type="text" id="email" class="req" />
 						</li>
 					</ul>
 					<p>
-						<label>* 咨询内容:</label>
+						<label>* 咨询内容(必填):</label>
 						<textarea id="message" class="req"></textarea>
 					</p>
 					
