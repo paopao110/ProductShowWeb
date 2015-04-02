@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.alibaba.fastjson.JSON;
 import com.product.model.Message;
 import com.product.service.MessageServiceI;
 
@@ -30,6 +31,13 @@ public class MessageTest {
 			messageService.insertMessage(message);
 		}
 	}
+	@Test
+	public void queryCount(){
+		System.out.println(messageService.queryCount());
+	}
 	
-	
+	@Test
+	public void queryByPaging(){
+		System.out.println(JSON.toJSON(messageService.queryMessageByPaging(0, 5)));
+	}
 }

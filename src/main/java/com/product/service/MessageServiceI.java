@@ -10,4 +10,5 @@ public interface MessageServiceI {
 	
 	List<Message> queryMessageByPaging(Integer begin,Integer number);
 	Message queryMessageById(Integer id);
+	int queryCount();
 }

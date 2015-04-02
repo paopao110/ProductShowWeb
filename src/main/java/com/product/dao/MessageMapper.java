@@ -10,7 +10,9 @@ public interface MessageMapper {
     int insertSelective(Message record);
 
     Message selectByPrimaryKey(Integer mId);
-    List<Message> selectByPaing(Integer begin,Integer number);
+    List<Message> selectByPaging(Integer begin,Integer number);
+    int selectCount();
+    
     
     int updateByPrimaryKeySelective(Message record);
 }

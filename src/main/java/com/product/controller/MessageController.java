@@ -4,8 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.product.model.Message;
 import com.product.service.MessageServiceI;
@@ -31,5 +33,26 @@ public class MessageController {
 		}else{
 			return "Mail failed";
 		}
+	}
+	
+	@RequestMapping(value="fetchMessageCount",params="admin")
+	public @ResponseBody Integer fetchMessageCount(){
+		return messageService.queryCount();
+	}
+	
+	@RequestMapping(value="{mId}/viewMsg",params="admin")
+	public ModelAndView viewMessage(@PathVariable Integer mId,HttpServletRequest request){
+		Message msg = messageService.queryMessageById(mId);
+		request.setAttribute("msg", msg);
+		return new ModelAndView("admin/modify");
+	}
+	
+	@RequestMapping(value="{mId}/deleteMsg",params="admin")
+	public @ResponseBody Boolean deleteMessage(@PathVariable Integer mId,HttpServletRequest request){
+		int flag  = messageService.deleteMessageById(mId);
+		if(flag>0){
+			return true;
+		}
+		return false;
 	}
 }

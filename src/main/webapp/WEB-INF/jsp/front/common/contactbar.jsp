@@ -13,6 +13,10 @@
 					<dt> E-mail : </dt>
 					<dd><a href="mailto:contact@newcore.com">contact@newcore.com</a></dd>
 				</dl>
+				<dl>
+					<dt> QQ : </dt>
+					<dd>12345678</dd>
+				</dl>
 			</div>
 			<div class="contact-data">
 				<p><strong>联系地址:</strong></p>

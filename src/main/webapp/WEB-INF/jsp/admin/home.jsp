@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
 <html lang="en"><!--<![endif]--> 
@@ -37,60 +38,34 @@
 					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
+								<th>留言编号</th>
+								<th>客户名称</th>
+								<th>联系电话</th>
 								<th>
-									Project
-								</th>
-								<th>
-									Client
-								</th>
-								<th>
-									Type
-								</th>
-								<th>
-									Date
-								</th>
-								<th>
-									View
+									相关操作
 								</th>
 							</tr>
 						</thead>
 						<tbody>
-							<%for(int i =0;i<5;i++) {%>
-							<tr>
-								<td>
-									Nike.com Redesign
-								</td>
-								<td>
-									Monsters Inc
-								</td>
-								<td>
-									New Task
-								</td>
-								<td>
-									4 days ago
-								</td>
-								<td>
-									<a href="#" class="view-link">View</a>
-								</td>
+							<c:forEach items="${msgList}" var="msg">
+							<tr >
+								<td>${msg.mId }</td>
+								<td>${msg.mUsername }</td>
+								<td>${msg.mTel}</td>
+								<td><a href="<%=request.getContextPath()%>/${msg.mId }/viewMsg?admin">查看</a></td>
 							</tr>
-							<%} %>
+							</c:forEach>
 						</tbody>
 					</table>
 					<ul class="pager">
 						<li class="next">
-							<a href="activity.htm">查看更多 &rarr;</a>
+							<a href="<%=request.getContextPath()%>/message?admin">查看更多 &rarr;</a>
 						</li>
 					</ul>
-                    <ul class="pager">
-						<li class="next">
-							More Templates <a href="#" target="_blank"></a> - Collect from <a href="http://www.cssmoban.com/" title="ç½é¡µæ¨¡æ¿" target="_blank">ç½é¡µæ¨¡æ¿</a>
-						</li>
-					</ul>
+                    
 				</div>
 			</div>
 		</div>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/site.js"></script>
+		<script type="text/javascript" src="js/kkpager-message.js"></script>
 	</body>
 </html>

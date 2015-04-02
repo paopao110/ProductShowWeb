@@ -31,11 +31,14 @@ public class MessageServiceImpl implements MessageServiceI{
 	}
 
 	public List<Message> queryMessageByPaging(Integer begin, Integer number) {
-		return messageMapper.selectByPaing(begin,number);
+		return messageMapper.selectByPaging(begin,number);
 	}
 
 	public Message queryMessageById(Integer id) {
 		return messageMapper.selectByPrimaryKey(id);
 	}
 
+	public int queryCount() {
+		return messageMapper.selectCount();
+	}
 }

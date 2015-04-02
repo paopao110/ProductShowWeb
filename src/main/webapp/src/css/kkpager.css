@@ -1,4 +1,4 @@
-ï»¿#kkpager{
+#kkpager{
 	clear:both;
 	height:30px;
 	line-height:30px;
@@ -57,7 +57,7 @@
 	height:20px;
 	line-height:20px;
 	padding:0px;
-	font-family:arial,å®‹ä½“,sans-serif;
+	font-family:arial,ËÎÌå,sans-serif;
 	text-align:center;
 	border:0px;
 	background-color:#0063DC;
@@ -68,7 +68,7 @@
 	display:none;
 }
 #kkpager_btn_go_input{
-	width:42px;
+	width:30px;
 	height:16px;
 	text-align:center;
 	border:0px;
