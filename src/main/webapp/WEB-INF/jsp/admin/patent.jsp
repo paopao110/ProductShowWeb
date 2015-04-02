@@ -16,7 +16,7 @@
 				<div class="span9">
 					<h2>专利管理</h2>
 					<div align="right">
-						<button type="submit" class="btn btn-primary">添加 专利</button>
+						<a class="btn btn-primary" href="<%=request.getContextPath() %>/addPatentPage?admin">添加 专利信息</a>
 					</div>
 					<table class="table table-bordered table-striped">
 						<thead>

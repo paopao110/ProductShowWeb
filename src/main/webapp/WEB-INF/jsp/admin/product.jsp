@@ -16,7 +16,7 @@
 				<div class="span9">
 					<h2>产品管理</h2>
 					<div align="right">
-						<button type="submit" class="btn btn-primary">添加产品</button>
+						<a class="btn btn-primary" href="<%=request.getContextPath() %>/addProductPage?admin">添加产品信息</a>
 					</div>
 					<table class="table table-bordered table-striped">
 						<thead>

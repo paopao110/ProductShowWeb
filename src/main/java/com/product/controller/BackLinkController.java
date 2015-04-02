@@ -11,18 +11,23 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.product.model.Admin;
 import com.product.model.Message;
+import com.product.model.Submenu;
 import com.product.service.AdminServiceI;
 import com.product.service.MessageServiceI;
+import com.product.service.SubmenuServiceI;
 
 @Controller
 public class BackLinkController {
 	
 	private MessageServiceI sessageService;
 	private AdminServiceI adminService;
+	private SubmenuServiceI submenuService;
 	@Autowired
-	public BackLinkController(MessageServiceI _sessageService,AdminServiceI _adminService){
+	public BackLinkController(MessageServiceI _sessageService,AdminServiceI _adminService,
+			SubmenuServiceI _submenuService){
 		this.sessageService=_sessageService;
 		this.adminService = _adminService;
+		this.submenuService = _submenuService;
 	}
 		
 	@RequestMapping(value="home",params="admin")
@@ -33,7 +38,9 @@ public class BackLinkController {
 	}
 	
 	@RequestMapping(value="submenu",params="admin")
-	public ModelAndView linkSubmenu(){
+	public ModelAndView linkSubmenu(HttpServletRequest request){
+		List<Submenu> list = submenuService.queryAllSubmenu();
+		request.setAttribute("submenu", list);
 		return new ModelAndView("admin/submenu");
 	}
 	

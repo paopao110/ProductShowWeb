@@ -1,5 +1,9 @@
 package com.product.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +25,13 @@ public class MessageController {
 	}
 	
 	@RequestMapping("sendMessage")
-	public @ResponseBody String submitMessage(HttpServletRequest request){
+	public @ResponseBody String submitMessage(HttpServletRequest request) 
+			throws UnsupportedEncodingException{
 		Message msg = new Message();
-		msg.setmContent(request.getParameter("message"));
-		msg.setmEmail(request.getParameter("email"));
-		msg.setmTel(request.getParameter("telphone"));
-		msg.setmUsername(request.getParameter("name"));
+		msg.setmContent(transCoding(request.getParameter("message")));
+		msg.setmEmail(transCoding(request.getParameter("email")));
+		msg.setmTel(transCoding(request.getParameter("telphone")));
+		msg.setmUsername(transCoding(request.getParameter("name")));
 		int flag = messageService.insertMessage(msg);
 		if(flag>0){
 			return "Mail sent";
@@ -54,5 +59,16 @@ public class MessageController {
 			return true;
 		}
 		return false;
+	}
+	
+	
+	private String transCoding(String str){
+		String finalStr = "";
+		try {
+			finalStr = new String(str.getBytes("ISO-8859-1"),"UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		return finalStr;
 	}
 }

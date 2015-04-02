@@ -16,7 +16,7 @@
 				<div class="span9">
 					<h2>类别管理</h2>
 					<div align="right">
-						<button type="submit" class="btn btn-primary">添加类别</button>
+						<a class="btn btn-primary" href="<%=request.getContextPath() %>/addSubmenuPage?admin">添加类别</a>
 					</div>
 					<table class="table table-bordered table-striped">
 						<thead>
