@@ -21,7 +21,7 @@
 		<div class="post columns">
 
 			<div class="column column_25">
-				<img src="<%=request.getContextPath()%>/src/img/examples/blog_small_1.jpg" alt="In eros ultrices posuere risus." width="180" height="124" />
+				<img src="<%=request.getContextPath()%>/src/img/examples/blog_small_4.jpg" alt="In eros ultrices posuere risus." width="180" height="124" />
 				<p class="icon comments">
 					<a href="#"><strong> 说明<%=i %></strong></a>
 				</p>

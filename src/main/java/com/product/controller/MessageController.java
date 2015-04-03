@@ -53,7 +53,7 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value="{mId}/deleteMsg",params="admin")
-	public @ResponseBody Boolean deleteMessage(@PathVariable Integer mId,HttpServletRequest request){
+	public @ResponseBody Boolean deleteMessage(@PathVariable Integer mId){
 		int flag  = messageService.deleteMessageById(mId);
 		if(flag>0){
 			return true;

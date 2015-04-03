@@ -20,41 +20,27 @@
 						<fieldset>
 							<legend>修改信息</legend>
 							<div class="control-group">
-								<label class="control-label" for="input01">原始密码</label>
+								<label class="control-label" for="input01">原始密码(<font color="red">必填</font>)</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" value="John Smith" />
+									<input type="text" class="input-xlarge" id="input01"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="input01">新密码</label>
+								<label class="control-label" for="input01">新密码(<font color="red">必填</font>)</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" value="555 555 555" />
+									<input type="text" class="input-xlarge" id="input01" />
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="input01">确认新密码</label>
+								<label class="control-label" for="input01">确认新密码(<font color="red">必填</font>)</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" value="john.smith@example.org" />
+									<input type="text" class="input-xlarge" id="input01"/>
 								</div>
-							</div>
-							<!-- 
-							<div class="control-group">
-								<label class="control-label" for="fileInput">Photo</label>
-								<div class="controls">
-									<input class="input-file" id="fileInput" type="file" />
-								</div>
-							</div>						
-							<div class="control-group">
-								<label class="control-label" for="textarea">Biography</label>
-								<div class="controls">
-									<textarea class="input-xlarge" id="textarea" rows="4">Web technology junkie who writes innovative and bestselling technical books. Also enjoys Sunday bicycle rides and all "good" comedy.</textarea>
-								</div>
-							</div>
-							 -->						
+							</div>					
 							<div class="form-actions">
-								<button type="submit" class="btn btn-primary">修改</button> <button class="btn">Cancel</button>
+								<button type="submit" class="btn btn-primary">修改</button> 
+								<button type="reset" class="btn">清空</button>
 							</div>
-							
 						</fieldset>
 					</form>
 					</c:if>
@@ -86,6 +72,24 @@
 									<textarea class="input-xlarge" id="textarea" rows="4">${msg.mContent }</textarea>
 								</div>
 							</div>
+						</fieldset>
+					</form>
+					</c:if>
+					<c:if test="${submenu!=null }">
+					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/updateSubmenu?admin" method="post">
+						<fieldset>
+							<legend>产品类别</legend>
+							<div class="control-group">
+								<label class="control-label" for="input01">产品类别名称(<font color="red">必填</font>)</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" value="${submenu.sTitle }" id="sTitle" name="sTitle" />
+								</div>
+							</div>
+							<input type="hidden" value="${submenu.sId }" id="sId" name="sId" />
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">修改</button> 
+								<button type="reset" class="btn">清空</button>
+							</div>	
 						</fieldset>
 					</form>
 					</c:if>

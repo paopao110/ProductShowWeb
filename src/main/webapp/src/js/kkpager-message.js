@@ -46,16 +46,3 @@ $(function(){
 		}
 	});
 });
-
-function deleteMessage(url){
-	if(!confirm("确认删除该条客户留言？")){
-		return;
-	}
-	$.ajax({
-		url:url,
-		success : function(obj) {
-			location.reload();
-		},
-		async : false
-	});
-}

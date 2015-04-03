@@ -41,6 +41,11 @@
 								</td>
 							</tr>
 							</c:forEach>
+							<c:if test="${msgList.size()==0 }">
+							<tr>
+								<td colspan="3"><font color="red">没有数据</font></td>
+							</tr>
+							</c:if>
 						</tbody>
 					</table>
 					<div align="center" class="pagination" id="kkpager"></div>
@@ -50,5 +55,6 @@
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/kkpager.min.js"></script>
 		<script type="text/javascript" src="js/kkpager-message.js"></script>
+		<script type="text/javascript" src="js/del.js"></script>
 	</body>
 </html>

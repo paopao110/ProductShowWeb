@@ -7,6 +7,7 @@
 		<title>产品信息</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<jsp:include page="common/headerSrc.jsp"></jsp:include>
+		<link href="css/kkpager.css" rel="stylesheet">
 	</head>
 	<body>
 		<div class="container">
@@ -40,11 +41,12 @@
 							<%} %>
 						</tbody>
 					</table>
+					<div align="center" class="pagination" id="kkpager"></div>
 				</div>
 			</div>
 		</div>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/site.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/kkpager.min.js"></script>
+		<script type="text/javascript" src="js/kkpager-message.js"></script>
 	</body>
 </html>
