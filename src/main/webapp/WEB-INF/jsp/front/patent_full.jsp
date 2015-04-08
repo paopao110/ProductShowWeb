@@ -56,14 +56,14 @@
 			
 			<div class="column photo-big">
 			
-				<a href="<%=request.getContextPath() %>/src/img/examples/portfolio_big_1.jpg" rel="prettyPhoto[gallery]" title="This is the description">
-					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_big_1.jpg" alt="" />
+				<a href="<%=request.getContextPath() %>/src/img/examples/portfolio_big_4.jpg" rel="prettyPhoto[gallery]" title="This is the description">
+					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_big_4.jpg" alt="" />
 				</a>
-				<a href="<%=request.getContextPath() %>/src/img/examples/portfolio_big_2.jpg" rel="prettyPhoto[gallery]" title="This is the description">
-					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_big_2.jpg" alt="" />
+				<a href="<%=request.getContextPath() %>/src/img/examples/portfolio_big_4.jpg" rel="prettyPhoto[gallery]" title="This is the description">
+					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_big_4.jpg" alt="" />
 				</a>
-				<a href="<%=request.getContextPath() %>/src/img/examples/portfolio_big_3.jpg" rel="prettyPhoto[gallery]" title="This is the description">
-					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_big_3.jpg" alt="" />
+				<a href="<%=request.getContextPath() %>/src/img/examples/portfolio_big_4.jpg" rel="prettyPhoto[gallery]" title="This is the description">
+					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_big_4.jpg" alt="" />
 				</a>
 
 			</div>

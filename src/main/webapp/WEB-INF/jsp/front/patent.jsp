@@ -29,7 +29,7 @@
 			<div class="column photo">
 				<a href="<%=request.getContextPath() %>/patent_full">
 					<span></span>
-					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_medium_1.jpg" alt="xxxx." />
+					<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_medium_4.jpg" alt="xxxx." />
 				</a>
 			</div>
 			

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.product.model.News" >
+    <id column="n_id" property="nId" jdbcType="INTEGER" />
+    <result column="n_title" property="nTitle" jdbcType="VARCHAR" />
+    <result column="n_content" property="nContent" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <resultMap type="com.product.model.News" id="NewsResultMap" extends="BaseResultMap">
+  	<collection property="images" javaType="list" ofType="com.product.model.Images">
+  		<id column="i_id" property="iId" jdbcType="INTEGER" />
+    	<result column="i_url" property="iUrl" jdbcType="VARCHAR" />
+    	<result column="i_description" property="iDescription" jdbcType="VARCHAR" />
+  	</collection>
+  </resultMap>
+  
+  <select id="selectByPrimaryKey" resultMap="NewsResultMap" parameterType="java.lang.Integer" >
+    select n.n_id, n_title, n_content,i_id,i_url,i_description from tb_news as n,tb_images as i
+    where n.n_id = #{nId,jdbcType=INTEGER} and n.n_id=i.n_id
+  </select>
+  
+  <select id="selectByPaging" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select n_id, n_title, n_content from tb_news order by n_id desc limit #{param1},#{param2}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_news where n_id = #{nId,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.product.model.News" >
+    insert into tb_news (n_id, n_title, n_content)
+    values (#{nId,jdbcType=INTEGER}, #{nTitle,jdbcType=VARCHAR}, #{nContent,jdbcType=VARCHAR})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.product.model.News" >
+    insert into tb_news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >n_id,</if>
+      <if test="nTitle != null" >n_title,</if>
+      <if test="nContent != null" >n_content,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nId != null" > #{nId,jdbcType=INTEGER},</if>
+      <if test="nTitle != null" >#{nTitle,jdbcType=VARCHAR},</if>
+      <if test="nContent != null" >#{nContent,jdbcType=VARCHAR},</if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.product.model.News" >
+    update tb_news
+    <set>
+      <if test="nTitle != null" >n_title = #{nTitle,jdbcType=VARCHAR},</if>
+      <if test="nContent != null" >n_content = #{nContent,jdbcType=VARCHAR},</if>
+    </set>
+    where n_id = #{nId,jdbcType=INTEGER}
+  </update>
+</mapper>
