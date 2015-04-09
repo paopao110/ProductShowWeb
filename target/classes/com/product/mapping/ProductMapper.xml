@@ -22,7 +22,9 @@
     where p.p_id = #{pId,jdbcType=INTEGER} and p.p_id=i.p_id
   </select>
   
-  
+  <select id="selectCount" resultType="java.lang.Integer" >
+    select count(p_id) from tb_product
+  </select>
   
   <select id="selectByPaging" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select p_id, s_id,p_title, p_summary,p_content from tb_product order by p_id desc limit #{param1},#{param2}

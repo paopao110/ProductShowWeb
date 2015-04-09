@@ -7,6 +7,7 @@ import com.product.model.Product;
 public interface ProductMapper {
 	Product selectByPrimaryKey(Integer pId);
     List<Product> selectByPaging(Integer begin,Integer number);
+    int selectCount();
     
     int insertSelective(Product product);
     int deleteByPrimaryKey(Integer pId);

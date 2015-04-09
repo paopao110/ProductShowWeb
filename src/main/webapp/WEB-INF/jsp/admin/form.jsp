@@ -33,35 +33,36 @@
 					</form>
 					</c:if>
 					<c:if test="${productPage==true }">
-					<form id="edit-profile" class="form-horizontal">
+					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/addProduct?admin" method="post">
 						<fieldset>
 							<legend>产品信息</legend>
 							<div class="control-group">
 								<label class="control-label" for="input01">产品信息名称(<font color="red">必填</font>)</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" />
+									<input type="text" class="input-xlarge" id="pTitle" name="pTitle"/>
 								</div>
 							</div>
 							 <div class="control-group">
 								<label class="control-label" for="input01">产品类别(<font color="red">必选</font>)</label>
 								<div class="controls">
-									<select class="input-xlarge">
+									<select class="input-xlarge" id="sId" name="sId">
 										<option value="-1">请选择类别</option>
-										<option value="1">sss想念你呢</option>
-										<option value="1">ssssss</option>
+										<c:forEach items="${submenu}" var="sub">
+											<option value="${sub.sId }">${sub.sTitle }</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="textarea">产品信息简介(<font color="red">必填</font>)</label>
 								<div class="controls">
-									<textarea class="input-xlarge" id="textarea" rows="2"></textarea>
+									<textarea class="input-xlarge" id="textarea" rows="2" id="pSummary" name="pSummary"></textarea>
 								</div>
 							</div>			
 							<div class="control-group">
 								<label class="control-label" for="textarea">产品信息描述(<font color="red">必填</font>)</label>
 								<div class="controls">
-									<textarea class="input-xlarge" id="textarea" rows="4"></textarea>
+									<textarea class="input-xlarge" id="textarea" rows="4" id="pContent" name="pContent"></textarea>
 								</div>
 							</div>						
 							<div class="form-actions">

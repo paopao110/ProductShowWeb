@@ -11,9 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.product.model.Admin;
 import com.product.model.Message;
+import com.product.model.Product;
 import com.product.model.Submenu;
 import com.product.service.AdminServiceI;
 import com.product.service.MessageServiceI;
+import com.product.service.ProductServiceI;
 import com.product.service.SubmenuServiceI;
 
 @Controller
@@ -22,12 +24,14 @@ public class BackLinkController {
 	private MessageServiceI sessageService;
 	private AdminServiceI adminService;
 	private SubmenuServiceI submenuService;
+	private ProductServiceI productService;
 	@Autowired
 	public BackLinkController(MessageServiceI _sessageService,AdminServiceI _adminService,
-			SubmenuServiceI _submenuService){
+			SubmenuServiceI _submenuService,ProductServiceI _productService){
 		this.sessageService=_sessageService;
 		this.adminService = _adminService;
 		this.submenuService = _submenuService;
+		this.productService = _productService;
 	}
 		
 	@RequestMapping(value="home",params="admin")
@@ -45,7 +49,10 @@ public class BackLinkController {
 	}
 	
 	@RequestMapping(value="product",params="admin")
-	public ModelAndView linkProduct(){
+	public ModelAndView linkProduct(HttpServletRequest request){
+		int pno = fetchCurrentPager(request.getParameter("pno"));
+		List<Product> list = productService.queryProductByPaging((pno-1)*5, 5);
+		request.setAttribute("products", list);
 		return new ModelAndView("admin/product");
 	}
 	

@@ -38,4 +38,8 @@ public class SubmenuServiceImpl implements SubmenuServiceI{
 		return submenuMapper.insert(submenu);
 	}
 
+	public int queryCount() {
+		return submenuMapper.selectCount();
+	}
+
 }

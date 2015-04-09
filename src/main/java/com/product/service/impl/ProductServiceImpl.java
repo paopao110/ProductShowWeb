@@ -37,5 +37,9 @@ public class ProductServiceImpl implements ProductServiceI{
 	public Product queryProductById(Integer id) {
 		return productMapper.selectByPrimaryKey(id);
 	}
+
+	public int queryCount() {
+		return productMapper.selectCount();
+	}
 	
 }

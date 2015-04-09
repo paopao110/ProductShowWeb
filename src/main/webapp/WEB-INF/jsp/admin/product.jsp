@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
 <html lang="en"><!--<![endif]--> 
@@ -31,14 +32,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%for(int i=0;i<5;i++){ %>
+							<c:forEach items="${products}" var="product">
 							<tr>
-								<td>Nike.com Redesign</td>
-								<td>Monsters Inc</td>
-								<td>Monsters Inc</td>
-								<td><a href="#">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">添加图片</a></td>
+								<td>${product.pId}</td>
+								<td>${product.pTitle}</td>
+								<td>${product.sId}</td>
+								<td><a href="#">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+									<a href="#">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+									<a href="#">添加图片</a>
+								</td>
 							</tr>
-							<%} %>
+							</c:forEach>
 						</tbody>
 					</table>
 					<div align="center" class="pagination" id="kkpager"></div>
@@ -47,6 +51,6 @@
 		</div>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/kkpager.min.js"></script>
-		<script type="text/javascript" src="js/kkpager-message.js"></script>
+		<script type="text/javascript" src="js/kkpager-product.js"></script>
 	</body>
 </html>

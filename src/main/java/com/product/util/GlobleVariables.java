@@ -1,5 +1,5 @@
 package com.product.util;
-public class MessageString {
+public class GlobleVariables {
 	public static String ADD_INFO_FAILURE = "<font color='red'>添加失败</font>";
 	public static String ADD_INFO_SUCCESS = "<font color='green'>添加成功</font>";
 	public static int ADD_FLAG_FAILURE = 1;
@@ -14,4 +14,7 @@ public class MessageString {
 	public static String UPDATE_INFO_SUCCESS = "<font color='green'>更新成功</font>";
 	public static int UPDATE_FLAG_FAILURE = 3;
 	public static int UPDATE_FLAG_SUCCESS = 2;
+	
+	public static int SUBMENUCOUNT = 5;
+	public static String MORE_THAN_SUBMENU_COUNT = "<font color='red'>添加类别不得超过"+SUBMENUCOUNT+"个</font>";
 }
