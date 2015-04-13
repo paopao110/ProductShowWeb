@@ -73,6 +73,7 @@
 						</fieldset>
 					</form>
 					</c:if>
+					
 					<c:if test="${patentPage==true }">
 					<form id="edit-profile" class="form-horizontal">
 						<fieldset>
@@ -114,7 +115,30 @@
 						</fieldset>
 					</form>
 					</c:if>
-					
+					<c:if test="${imagePage==true }">
+					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/addImage?admin" 
+							enctype="multipart/form-data" method="post">
+						<fieldset>
+							<legend>添加产品图片</legend>
+							<div class="control-group">
+								<label class="control-label" for="fileInput">图片</label>
+								<div class="controls">
+									<input class="input-file" id="doc" type="file" name="doc"/>
+								</div>
+							</div>						
+							<div class="control-group">
+								<label class="control-label" for="textarea">图片说明</label>
+								<div class="controls">
+									<textarea class="input-xlarge" id="iDescription" rows="2" name="iDescription"></textarea>
+								</div>
+							</div>
+							<input id="pId" name="pId" type="hidden" value="${pid}"/>					
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">上传</button> <button class="btn">重置</button>
+							</div>
+						</fieldset>
+					</form>
+					</c:if>
 				</div>
 			</div>
 		</div>	

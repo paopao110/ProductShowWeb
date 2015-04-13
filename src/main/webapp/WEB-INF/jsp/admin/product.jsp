@@ -39,7 +39,7 @@
 								<td>${product.sId}</td>
 								<td><a href="#">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 									<a href="#">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-									<a href="#">添加图片</a>
+									<a href="<%=request.getContextPath()%>/${product.pId}/addImagePage?admin">添加图片</a>
 								</td>
 							</tr>
 							</c:forEach>
