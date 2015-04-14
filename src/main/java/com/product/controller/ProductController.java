@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,5 +49,22 @@ public class ProductController {
 	@RequestMapping(value="fetchProductCount",params="admin")
 	public @ResponseBody Integer fetchMessageCount(){
 		return productService.queryCount();
+	}
+	
+	@RequestMapping(value="updateProduct",params="admin",method=RequestMethod.POST)
+	public ModelAndView updateProduct(@ModelAttribute Product product,HttpServletRequest request){
+		if(product!=null){
+			productService.updateProductById(product);
+		}
+		return new ModelAndView(new RedirectView(request.getContextPath()+"/product?admin"));
+	}
+	
+	@RequestMapping(value="{pId}/deleteProduct",params="admin")
+	public @ResponseBody Boolean deleteProduct(@PathVariable int pId){
+		int flag = productService.deleteProductById(pId);
+		if(flag>0){
+			return true;
+		}
+		return false;
 	}
 }

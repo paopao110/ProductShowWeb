@@ -10,6 +10,7 @@ public interface ImagesMapper {
 	List<Images> selectByPagingWithNID(Integer nId,Integer begin,Integer number);
 	
     int deleteByPrimaryKey(Integer iId);
+    int deleteByPid(Integer pId);
 
     int insertSelective(Images images);
     

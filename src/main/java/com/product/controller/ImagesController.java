@@ -62,6 +62,7 @@ public class ImagesController {
 		}
 		List<Images> list = imagesService.queryImagesByPaging(image.getpId(), 0,6, true);
 		request.setAttribute("imagesList", list);
+		request.setAttribute("product", productService.queryProductById(image.getpId()));
 		return new ModelAndView("admin/gallery");
 	}
 }

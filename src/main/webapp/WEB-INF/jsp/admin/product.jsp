@@ -37,8 +37,10 @@
 								<td>${product.pId}</td>
 								<td>${product.pTitle}</td>
 								<td>${product.sId}</td>
-								<td><a href="#">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-									<a href="#">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+								<td>
+									<a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+									<a href="#">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+									<a href="#" onclick="deleteProduct('<%=request.getContextPath()%>/${product.pId}/deleteProduct?admin')">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 									<a href="<%=request.getContextPath()%>/${product.pId}/addImagePage?admin">添加图片</a>
 								</td>
 							</tr>
@@ -52,5 +54,6 @@
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/kkpager.min.js"></script>
 		<script type="text/javascript" src="js/kkpager-product.js"></script>
+		<script type="text/javascript" src="js/del.js"></script>
 	</body>
 </html>

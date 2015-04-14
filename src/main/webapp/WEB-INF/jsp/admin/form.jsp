@@ -5,7 +5,7 @@
 <html lang="en"><!--<![endif]--> 
 	<head>
 		<meta charset="utf-8">
-		<title>修改页面</title>
+		<title>添加页面</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<jsp:include page="common/headerSrc.jsp"></jsp:include>
 	</head>

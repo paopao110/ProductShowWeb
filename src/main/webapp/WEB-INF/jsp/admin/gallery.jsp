@@ -16,19 +16,25 @@
 				<jsp:include page="common/leftbar.jsp"></jsp:include>
 				<div class="span9">
 					<h2>产品图片${message }</h2>
+					<hr/>
+					<div align="right">
+						<a class="btn btn-primary" href="<%=request.getContextPath()%>/${product.pId}/addImagePage?admin">继续添加图片</a>
+					</div>
 					<ul class="thumbnails">
 						<c:forEach items="${imagesList}" var="image">
 						<li class="span3">
-							<div class="thumbnail">
+							<a class="thumbnail">
 								<img src="<%=request.getContextPath() %>/upload/${image.iUrl}" alt="" />
-								<div class="caption">
-									<h5>Thumbnail label</h5>
+								
+							</a>
+							<div class="caption" align="center">
+									<h5>所属产品:${product.pTitle }</h5>
 									<p>
-										<c:if test="${image.iDescription==null}">咱无描述</c:if>
+										图片描述：
+										<c:if test="${image.iDescription==''}">暂时没有描述</c:if>
 										${image.iDescription}
 									</p>
 								</div>
-							</div>
 						</li>
 						</c:forEach>
 					</ul>
@@ -36,8 +42,8 @@
 				</div>
 			</div>
 		</div>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/site.js"></script>
+		<script src="<%=request.getContextPath() %>/src/js/jquery.min.js"></script>
+		<script src="<%=request.getContextPath() %>/src/js/bootstrap.min.js"></script>
+		<script src="<%=request.getContextPath() %>/src/js/site.js"></script>
 	</body>
 </html>

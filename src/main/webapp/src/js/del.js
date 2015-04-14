@@ -6,6 +6,7 @@ function deleteMessage(url){
 	$.ajax({
 		url:url,
 		success : function(obj) {
+			alert("删除成功！");
 			location.reload();
 		},
 		async : false
@@ -20,6 +21,22 @@ function deleteSubmenu(url){
 	$.ajax({
 		url:url,
 		success : function(obj) {
+			alert("删除成功！");
+			location.reload();
+		},
+		async : false
+	});
+}
+
+//delete message
+function deleteProduct(url){
+	if(!confirm("确认删除该条产品信息？")){
+		return;
+	}
+	$.ajax({
+		url:url,
+		success : function(obj) {
+			alert("删除成功！");
 			location.reload();
 		},
 		async : false

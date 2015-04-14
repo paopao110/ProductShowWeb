@@ -23,6 +23,10 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_images where i_id = #{iId,jdbcType=INTEGER}
   </delete>
+  
+  <delete id="deleteByPid" parameterType="java.lang.Integer" >
+    delete from tb_images where p_id = #{param1,jdbcType=INTEGER}
+  </delete>
 
   <insert id="insertSelective" parameterType="com.product.model.Images" >
     insert into tb_images

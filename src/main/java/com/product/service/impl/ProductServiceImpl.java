@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.product.dao.ImagesMapper;
 import com.product.dao.ProductMapper;
 import com.product.model.Product;
 import com.product.service.ProductServiceI;
@@ -12,6 +13,9 @@ import com.product.service.ProductServiceI;
 @Service
 public class ProductServiceImpl implements ProductServiceI{
 
+	@Autowired
+	private ImagesMapper imagesMapper;
+	
 	private ProductMapper productMapper;
 	@Autowired
 	public ProductServiceImpl(ProductMapper _productMapper){
@@ -23,6 +27,10 @@ public class ProductServiceImpl implements ProductServiceI{
 	}
 
 	public int deleteProductById(Integer id) {
+		int flag = imagesMapper.deleteByPid(id);
+		if(flag<=0){
+			return flag;
+		}
 		return productMapper.deleteByPrimaryKey(id);
 	}
 
