@@ -15,7 +15,10 @@
 			<div class="row">
 				<jsp:include page="common/leftbar.jsp"></jsp:include>
 				<div class="span9">
-					<h1>最近客户留言</h2>
+					<div class="well summary">
+						<marquee>欢迎来到后台管理！</marquee>
+					</div>
+					<h2>最近客户留言</h2>
 					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>
