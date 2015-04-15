@@ -15,26 +15,7 @@
 			<div class="row">
 				<jsp:include page="common/leftbar.jsp"></jsp:include>
 				<div class="span9">
-					<h1>
-						Dashboard
-					</h1>
-					<div class="well summary">
-						<ul>
-							<li>
-								<a href="#"><span class="count">3</span> Projects</a>
-							</li>
-							<li>
-								<a href="#"><span class="count">27</span> Tasks</a>
-							</li>
-							<li>
-								<a href="#"><span class="count">7</span> Messages</a>
-							</li>
-							<li class="last">
-								<a href="#"><span class="count">5</span> Files</a>
-							</li>
-						</ul>
-					</div>
-					<h2>最近客户留言</h2>
+					<h1>最近客户留言</h2>
 					<table class="table table-bordered table-striped">
 						<thead>
 							<tr>

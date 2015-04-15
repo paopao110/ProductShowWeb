@@ -33,8 +33,7 @@ public class ProductController {
 	@RequestMapping(value="addProductPage",params="admin")
 	public ModelAndView linkAddProduct(HttpServletRequest request){
 		request.setAttribute("productPage", true);
-		List<Submenu> list = submenuService.queryAllSubmenu();
-		request.setAttribute("submenu",list);
+		getSubmenu(request);
 		return new ModelAndView("admin/form");
 	}
 	
@@ -49,6 +48,14 @@ public class ProductController {
 	@RequestMapping(value="fetchProductCount",params="admin")
 	public @ResponseBody Integer fetchMessageCount(){
 		return productService.queryCount();
+	}
+	
+	@RequestMapping(value="{pId}/viewProduct",params="admin")
+	public ModelAndView viewProduct(@PathVariable int pId,HttpServletRequest request){
+		Product product = productService.queryProductById(pId);
+		request.setAttribute("product", product);
+		getSubmenu(request);
+		return new ModelAndView("admin/modify");
 	}
 	
 	@RequestMapping(value="updateProduct",params="admin",method=RequestMethod.POST)
@@ -66,5 +73,10 @@ public class ProductController {
 			return true;
 		}
 		return false;
+	}
+	
+	private void getSubmenu(HttpServletRequest request){
+		List<Submenu> list = submenuService.queryAllSubmenu();
+		request.setAttribute("submenus",list);
 	}
 }

@@ -93,6 +93,52 @@
 						</fieldset>
 					</form>
 					</c:if>
+					<c:if test="${product!=null}">
+						<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/addProduct?admin" method="post">
+						<fieldset>
+							<legend>产品信息</legend>
+							<div class="control-group">
+								<label class="control-label" for="input01">产品信息名称(<font color="red">必填</font>)</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="pTitle" name="pTitle" value="${product.pTitle }"/>
+								</div>
+							</div>
+							 <div class="control-group">
+								<label class="control-label" for="input01">产品类别(<font color="red">必选</font>)</label>
+								<div class="controls">
+									<select class="input-xlarge" id="sId" name="sId">
+										<option value="-1">选择类别</option>
+										<c:forEach items="${submenus}" var="sub">
+											<c:if test="${product.sId==sub.sId }">
+											<option value="${sub.sId }" selected="selected">${sub.sTitle }</option>
+											</c:if>
+											<c:if test="${product.sId!=sub.sId }">
+												<option value="${sub.sId }">${sub.sTitle }</option>
+											</c:if>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="textarea">产品信息简介(<font color="red">必填</font>)</label>
+								<div class="controls">
+									<textarea class="input-xlarge" id="textarea" rows="2" id="pSummary" name="pSummary">${product.pTitle }</textarea>
+								</div>
+							</div>			
+							<div class="control-group">
+								<label class="control-label" for="textarea">产品信息描述(<font color="red">必填</font>)</label>
+								<div class="controls">
+									<textarea class="input-xlarge" id="textarea" rows="4" id="pContent" name="pContent">${product.pTitle }</textarea>
+								</div>
+							</div>						
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">修改</button> 
+								<button type="reset" class="btn">清空</button>
+							</div>
+							
+						</fieldset>
+					</form>
+					</c:if>
 				</div>
 			</div>
 		</div>	

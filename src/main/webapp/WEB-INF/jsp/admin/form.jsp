@@ -47,7 +47,7 @@
 								<div class="controls">
 									<select class="input-xlarge" id="sId" name="sId">
 										<option value="-1">请选择类别</option>
-										<c:forEach items="${submenu}" var="sub">
+										<c:forEach items="${submenus}" var="sub">
 											<option value="${sub.sId }">${sub.sTitle }</option>
 										</c:forEach>
 									</select>

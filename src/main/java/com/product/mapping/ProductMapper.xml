@@ -9,25 +9,35 @@
     <result column="p_content" property="pContent" jdbcType="VARCHAR" />
   </resultMap>
   
+  <resultMap id="SubmenuResultMap" type="com.product.model.Submenu" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="s_title" property="sTitle" jdbcType="VARCHAR" />
+  </resultMap>
+  
   <resultMap id="ProductResultMap" type="com.product.model.Product" extends="BaseResultMap">
+  	<association property="submenu" resultMap="SubmenuResultMap" javaType="com.product.model.Submenu"/>
     <collection property="images" javaType="list" ofType="com.product.model.Images" >
     	<id column="i_id" property="iId" jdbcType="INTEGER" />
     	<result column="i_url" property="iUrl" jdbcType="VARCHAR" />
     	<result column="i_description" property="iDescription" jdbcType="VARCHAR" />
     </collection>
+    
   </resultMap>
 
   <select id="selectByPrimaryKey" resultMap="ProductResultMap" parameterType="java.lang.Integer" >
-    select p.p_id, s_id,p_title, p_summary,p_content,i_id,i_url,i_description from tb_product as p,tb_images as i
-    where p.p_id = #{pId,jdbcType=INTEGER} and p.p_id=i.p_id
+    select p.p_id, p.s_id,s.s_title,p_title, p_summary,p_content 
+    from tb_product as p,tb_submenu as s 
+    where p.p_id = #{pId,jdbcType=INTEGER} and p.s_id=s.s_id
   </select>
   
   <select id="selectCount" resultType="java.lang.Integer" >
     select count(p_id) from tb_product
   </select>
   
-  <select id="selectByPaging" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select p_id, s_id,p_title, p_summary,p_content from tb_product order by p_id desc limit #{param1},#{param2}
+  <select id="selectByPaging" resultMap="ProductResultMap" parameterType="java.lang.Integer" >
+    select p_id, p.s_id,p_title, p_summary,p_content,s.s_title 
+	from tb_product as p,tb_submenu as s 
+	where p.s_id=s.s_id order by p_id desc limit #{param1},#{param2}
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >

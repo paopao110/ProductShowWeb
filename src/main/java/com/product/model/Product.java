@@ -13,6 +13,8 @@ public class Product {
     
     private String pContent;
     
+    private Submenu submenu;
+    
     private List<Images> images;
     
     
@@ -54,6 +56,14 @@ public class Product {
 
 	public void setpContent(String pContent) {
 		this.pContent = pContent;
+	}
+	
+	public Submenu getSubmenu() {
+		return submenu;
+	}
+
+	public void setSubmenu(Submenu submenu) {
+		this.submenu = submenu;
 	}
 
 	public List<Images> getImages() {
