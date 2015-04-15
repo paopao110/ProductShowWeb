@@ -17,8 +17,6 @@
     </collection>
   </resultMap>
 
-
-
   <select id="selectByPrimaryKey" resultMap="ProductResultMap" parameterType="java.lang.Integer" >
     select p.p_id, s_id,p_title, p_summary,p_content,i_id,i_url,i_description from tb_product as p,tb_images as i
     where p.p_id = #{pId,jdbcType=INTEGER} and p.p_id=i.p_id
