@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -36,7 +37,7 @@ public class ImagesController {
 	public ModelAndView LinkAddImages(@PathVariable int pId,HttpServletRequest request){
 		request.setAttribute("imagePage", true);
 		request.setAttribute("pid", pId);
-		return new ModelAndView("admin/form");
+		return new ModelAndView("admin/gallery");
 	}
 	
 	@RequestMapping(value="addImage",params="admin",method=RequestMethod.POST)
@@ -63,6 +64,26 @@ public class ImagesController {
 		List<Images> list = imagesService.queryImagesByPaging(image.getpId(), 0,6, true);
 		request.setAttribute("imagesList", list);
 		request.setAttribute("product", productService.queryProductById(image.getpId()));
+		request.setAttribute("imagePage", false);
+		return new ModelAndView("admin/gallery");
+	}
+	
+	@RequestMapping(value="{pId}/viewImage",params="admin")
+	public ModelAndView viewImage(@PathVariable int pId,HttpServletRequest request){
+		List<Images> images = imagesService.queryImagesByPaging(pId, 0, 6, true);
+		request.setAttribute("imagesList", images);
+		request.setAttribute("view","ok");
+		request.setAttribute("product", productService.queryProductById(pId));
+		return new ModelAndView("admin/gallery");
+	}
+	
+	@RequestMapping(value="{pId}/{id}/deleteImage",params="admin")
+	public ModelAndView deleteImage(@PathVariable int id,@PathVariable int pId,HttpServletRequest request){
+		int flag = imagesService.deleteImagesById(id);
+		List<Images> images = imagesService.queryImagesByPaging(pId, 0, 6, true);
+		request.setAttribute("imagesList", images);
+		request.setAttribute("view","ok");
+		request.setAttribute("product", productService.queryProductById(pId));
 		return new ModelAndView("admin/gallery");
 	}
 }

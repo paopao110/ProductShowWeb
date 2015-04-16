@@ -11,10 +11,33 @@
 	</head>
 	<body>
 		<div class="container">
-			<jsp:include page="common/menubar.jsp"/>
 			<div class="row">
-				<jsp:include page="common/leftbar.jsp"></jsp:include>
 				<div class="span9">
+					<c:if test="${imagePage==true }">
+					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/addImage?admin" 
+							enctype="multipart/form-data" method="post">
+						<fieldset>
+							<legend>添加产品图片</legend>
+							<div class="control-group">
+								<label class="control-label" for="fileInput">图片</label>
+								<div class="controls">
+									<input class="input-file" id="doc" type="file" name="doc"/>
+								</div>
+							</div>						
+							<div class="control-group">
+								<label class="control-label" for="textarea">图片说明</label>
+								<div class="controls">
+									<textarea class="input-xlarge" id="iDescription" rows="2" name="iDescription"></textarea>
+								</div>
+							</div>
+							<input id="pId" name="pId" type="hidden" value="${pid}"/>					
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">上传</button> <button class="btn">重置</button>
+							</div>
+						</fieldset>
+					</form>
+					</c:if>
+					<c:if test="${message!=null||view=='ok'}">
 					<h2>产品图片${message }</h2>
 					<hr/>
 					<div align="right">
@@ -25,20 +48,18 @@
 						<li class="span3">
 							<a class="thumbnail">
 								<img src="<%=request.getContextPath() %>/upload/${image.iUrl}" alt="" />
-								
 							</a>
 							<div class="caption" align="center">
-									<h5>所属产品:${product.pTitle }</h5>
-									<p>
-										图片描述：
-										<c:if test="${image.iDescription==''}">暂时没有描述</c:if>
-										${image.iDescription}
-									</p>
-								</div>
+								<h5>所属产品:${product.pTitle }</h5>
+								<p>图片描述：<c:if test="${image.iDescription==''}">暂时没有描述</c:if>
+								   ${image.iDescription}
+								</p>
+								<p><a href="<%=request.getContextPath()%>/${product.pId}/${image.iId}/deleteImage?admin">删除</a></p>
+							</div>
 						</li>
 						</c:forEach>
 					</ul>
-					
+					</c:if>
 				</div>
 			</div>
 		</div>

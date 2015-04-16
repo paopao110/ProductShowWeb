@@ -94,7 +94,7 @@
 					</form>
 					</c:if>
 					<c:if test="${product!=null}">
-						<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/addProduct?admin" method="post">
+						<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/updateProduct?admin" method="post">
 						<fieldset>
 							<legend>产品信息</legend>
 							<div class="control-group">
@@ -130,10 +130,12 @@
 								<div class="controls">
 									<textarea class="input-xlarge" id="textarea" rows="4" id="pContent" name="pContent">${product.pTitle }</textarea>
 								</div>
-							</div>						
+							</div>
+							<input type="hidden" value="${product.pId }" id="pId" name="pId" />		
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">修改</button> 
-								<button type="reset" class="btn">清空</button>
+								<button type="reset" onclick="viewimage('${product.pId }')" class="btn">查看产品图片</button>
+								<button type="reset" onclick="addimage('${product.pId }')" class="btn">添加产品图片</button>
 							</div>
 							
 						</fieldset>
@@ -143,4 +145,12 @@
 			</div>
 		</div>	
 	</body>
+	<script type="text/javascript">
+		function viewimage(pid){
+			window.open("/ProductShowWeb/"+pid+"/viewImage?admin",'newwindow','height=650,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,status=no');
+		}
+		function addimage(pid){
+			window.open("/ProductShowWeb/"+pid+"/addImagePage?admin",'newwindow','height=530,width=800,top=0,left=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
+		}
+	</script>
 </html>
