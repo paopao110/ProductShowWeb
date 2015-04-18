@@ -9,6 +9,9 @@ public class Admin {
 
     private String aPasswd;
 
+    private String nPasswd;
+    private String rnPasswd;
+    
     private Date aTimestamp;
 
     public Integer getaId() {
@@ -31,7 +34,23 @@ public class Admin {
         return aPasswd;
     }
 
-    public void setaPasswd(String aPasswd) {
+    public String getnPasswd() {
+		return nPasswd;
+	}
+
+	public void setnPasswd(String nPasswd) {
+		this.nPasswd = nPasswd;
+	}
+
+	public String getRnPasswd() {
+		return rnPasswd;
+	}
+
+	public void setRnPasswd(String rnPasswd) {
+		this.rnPasswd = rnPasswd;
+	}
+
+	public void setaPasswd(String aPasswd) {
         this.aPasswd = aPasswd == null ? null : aPasswd.trim();
     }
 

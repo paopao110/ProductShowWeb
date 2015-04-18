@@ -8,6 +8,7 @@
 		<title>图片查看</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<jsp:include page="common/headerSrc.jsp"></jsp:include>
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/src/js/validator/jquery.validator.css">
 	</head>
 	<body>
 		<div class="container">
@@ -15,13 +16,13 @@
 				<div class="span9">
 					<c:if test="${imagePage==true }">
 					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/addImage?admin" 
-							enctype="multipart/form-data" method="post">
+							enctype="multipart/form-data" method="post" autocomplete="off">
 						<fieldset>
 							<legend>添加产品图片</legend>
 							<div class="control-group">
 								<label class="control-label" for="fileInput">图片</label>
 								<div class="controls">
-									<input class="input-file" id="doc" type="file" name="doc"/>
+									<input class="input-file" id="doc" type="file" name="doc" data-rule="required;"/>
 								</div>
 							</div>						
 							<div class="control-group">
@@ -43,6 +44,7 @@
 					<div align="right">
 						<a class="btn btn-primary" href="<%=request.getContextPath()%>/${product.pId}/addImagePage?admin">继续添加图片</a>
 					</div>
+					<hr/>
 					<ul class="thumbnails">
 						<c:forEach items="${imagesList}" var="image">
 						<li class="span3">
@@ -58,7 +60,9 @@
 							</div>
 						</li>
 						</c:forEach>
+						<div align="center"><font color="red">${noimage}</font></div>
 					</ul>
+					<hr/>
 					</c:if>
 				</div>
 			</div>
@@ -66,5 +70,8 @@
 		<script src="<%=request.getContextPath() %>/src/js/jquery.min.js"></script>
 		<script src="<%=request.getContextPath() %>/src/js/bootstrap.min.js"></script>
 		<script src="<%=request.getContextPath() %>/src/js/site.js"></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/src/js/jquery.min.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/src/js/validator/jquery.validator.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/src/js/validator/local/zh_CN.js"></script>
 	</body>
 </html>

@@ -73,6 +73,9 @@ public class ImagesController {
 		List<Images> images = imagesService.queryImagesByPaging(pId, 0, 6, true);
 		request.setAttribute("imagesList", images);
 		request.setAttribute("view","ok");
+		if(images.size()<=0){
+			request.setAttribute("noimage","没有图片信息,请点击按钮添加图片");
+		}
 		request.setAttribute("product", productService.queryProductById(pId));
 		return new ModelAndView("admin/gallery");
 	}

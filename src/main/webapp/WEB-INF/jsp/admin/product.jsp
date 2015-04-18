@@ -38,10 +38,8 @@
 								<td>${product.pTitle}</td>
 								<td>${product.submenu.sTitle}</td>
 								<td>
-									<a href="#">查看</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 									<a href="<%=request.getContextPath()%>/${product.pId}/viewProduct?admin">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-									<a href="#" onclick="deleteProduct('<%=request.getContextPath()%>/${product.pId}/deleteProduct?admin')">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-									<a href="<%=request.getContextPath()%>/${product.pId}/addImagePage?admin">添加图片</a>
+									<a href="#" onclick="deleteProduct('<%=request.getContextPath()%>/${product.pId}/deleteProduct?admin')">删除</a>&nbsp;&nbsp;
 								</td>
 							</tr>
 							</c:forEach>
