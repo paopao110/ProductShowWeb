@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.product.dao.PatentMapper" >
+  <resultMap id="BaseResultMap" type="com.product.model.Patent" >
+    <id column="pa_id" property="paId" jdbcType="INTEGER" />
+    <result column="pa_name" property="paName" jdbcType="VARCHAR" />
+    <result column="pa_number" property="paNumber" jdbcType="VARCHAR" />
+    <result column="pa_date" property="paDate" jdbcType="VARCHAR" />
+    <result column="pa_category" property="paCategory" jdbcType="VARCHAR" />
+    <result column="pa_state" property="paState" jdbcType="VARCHAR" />
+    <result column="pa_person" property="paPerson" jdbcType="VARCHAR" />
+    <result column="pa_agent" property="paAgent" jdbcType="VARCHAR" />
+    <result column="pa_inventor" property="paInventor" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select pa_id,pa_name, pa_number, pa_date, pa_category, pa_state, pa_person, pa_agent, pa_inventor
+    from tb_patent where pa_id = #{paId,jdbcType=INTEGER}
+  </select>
+  <select id="selectCount" resultType="java.lang.Integer">
+    select count(pa_id) from tb_patent
+  </select>
+  <select id="selectByPaging" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select pa_id, pa_name,pa_number, pa_date, pa_category, pa_state, pa_person, pa_agent, pa_inventor
+    from tb_patent order by pa_id desc limit #{param1},#{param2}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_patent where pa_id = #{paId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.product.model.Patent" >
+    insert into tb_patent
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="paName != null" >pa_name,</if>
+      <if test="paNumber != null" >pa_number,</if>
+      <if test="paDate != null" >pa_date,</if>
+      <if test="paCategory != null" >pa_category,</if>
+      <if test="paState != null" >pa_state,</if>
+      <if test="paPerson != null" >pa_person,</if>
+      <if test="paAgent != null" >pa_agent,</if>
+      <if test="paInventor != null" >pa_inventor,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="paName != null" >#{paName,jdbcType=VARCHAR},</if>
+      <if test="paNumber != null" >#{paNumber,jdbcType=VARCHAR},</if>
+      <if test="paDate != null" >#{paDate,jdbcType=VARCHAR},</if>
+      <if test="paCategory != null" >#{paCategory,jdbcType=VARCHAR},</if>
+      <if test="paState != null" >#{paState,jdbcType=VARCHAR},</if>
+      <if test="paPerson != null" >#{paPerson,jdbcType=VARCHAR},</if>
+      <if test="paAgent != null" >#{paAgent,jdbcType=VARCHAR},</if>
+      <if test="paInventor != null" >#{paInventor,jdbcType=VARCHAR},</if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.product.model.Patent" >
+    update tb_patent
+    <set >
+      <if test="paNumber != null" >pa_name = #{paName,jdbcType=VARCHAR},</if>
+      <if test="paNumber != null" >pa_number = #{paNumber,jdbcType=VARCHAR},</if>
+      <if test="paDate != null" >pa_date = #{paDate,jdbcType=VARCHAR},</if>
+      <if test="paCategory != null" >pa_category = #{paCategory,jdbcType=VARCHAR},</if>
+      <if test="paState != null" >pa_state = #{paState,jdbcType=VARCHAR},</if>
+      <if test="paPerson != null" >pa_person = #{paPerson,jdbcType=VARCHAR},</if>
+      <if test="paAgent != null" >pa_agent = #{paAgent,jdbcType=VARCHAR},</if>
+      <if test="paInventor != null" >pa_inventor = #{paInventor,jdbcType=VARCHAR},</if>
+    </set>
+    where pa_id = #{paId,jdbcType=INTEGER}
+  </update>
+</mapper>

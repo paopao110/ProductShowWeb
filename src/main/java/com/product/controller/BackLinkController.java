@@ -11,28 +11,27 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.product.model.Admin;
 import com.product.model.Message;
+import com.product.model.Patent;
 import com.product.model.Product;
 import com.product.model.Submenu;
 import com.product.service.AdminServiceI;
 import com.product.service.MessageServiceI;
+import com.product.service.PatentServiceI;
 import com.product.service.ProductServiceI;
 import com.product.service.SubmenuServiceI;
 
 @Controller
 public class BackLinkController {
 	
+	@Autowired
 	private MessageServiceI sessageService;
 	private AdminServiceI adminService;
+	@Autowired
 	private SubmenuServiceI submenuService;
+	@Autowired
 	private ProductServiceI productService;
 	@Autowired
-	public BackLinkController(MessageServiceI _sessageService,AdminServiceI _adminService,
-			SubmenuServiceI _submenuService,ProductServiceI _productService){
-		this.sessageService=_sessageService;
-		this.adminService = _adminService;
-		this.submenuService = _submenuService;
-		this.productService = _productService;
-	}
+	private PatentServiceI patentService;
 		
 	@RequestMapping(value="home",params="admin")
 	public ModelAndView linkHome(HttpServletRequest request){
@@ -57,7 +56,10 @@ public class BackLinkController {
 	}
 	
 	@RequestMapping(value="patent",params="admin")
-	public ModelAndView linkPatent(){
+	public ModelAndView linkPatent(HttpServletRequest request){
+		int pno = fetchCurrentPager(request.getParameter("pno"));
+		List<Patent> list = patentService.queryPatentByPaging((pno-1)*5, 5);
+		request.setAttribute("patents", list);
 		return new ModelAndView("admin/patent");
 	}
 	

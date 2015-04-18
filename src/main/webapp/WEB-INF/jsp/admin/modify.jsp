@@ -38,7 +38,7 @@
 									<input type="text" class="input-xlarge" id="rnPasswd" name="rnPasswd" data-rule="required;"/>
 								</div>
 							</div>		
-							<input type="hidden" class="input-xlarge" id="aName" name="aName" value="<%=request.getSession().getAttribute("ADMINUSERSESSION")%>"/>			
+							<input type="hidden" class="input-xlarge" id="aName" name="aName" value="<%=session.getAttribute("ADMINUSERSESSION")%>"/>			
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">修改</button> 
 								<button type="reset" class="btn">清空</button>
@@ -144,6 +144,67 @@
 								<button type="submit" class="btn btn-primary">修改</button> 
 								<button type="reset" onclick="viewimage('${product.pId }')" class="btn">查看产品图片</button>
 								<button type="reset" onclick="addimage('${product.pId }')" class="btn">添加产品图片</button>
+							</div>
+							
+						</fieldset>
+					</form>
+					</c:if>
+					<c:if test="${patent!=null}">
+					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/updatePatent?admin" autocomplete="off" method="post">
+						<fieldset>
+							<legend>修改专利信息</legend>
+							<div class="control-group">
+								<label class="control-label" for="input01">专利名称</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paName" name="paName" value="${patent.paName }" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">申请号</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paNumber" name="paNumber" value="${patent.paNumber }" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">申请日</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paDate" name="paDate" value="${patent.paDate }" data-rule="required;"/>
+								</div>
+							</div> 					
+							<div class="control-group">
+								<label class="control-label" for="input01">主分类号</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paCategory" name="paCategory" value="${patent.paCategory }" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">案件状态</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paState" name="paState" value="${patent.paState }" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">申请人</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paPerson" name="paPerson" value="${patent.paPerson }" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">代理信息</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paAgent" name="paAgent" value="${patent.paAgent }" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">发明人名称</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paInventor" name="paInventor" value="${patent.paInventor }" data-rule="required;"/>
+								</div>
+							</div>	
+							<input type="hidden"  id="paId" name="paId" value="${patent.paId }"/>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">修改</button> 
+								<button class="btn">清空</button>
 							</div>
 							
 						</fieldset>

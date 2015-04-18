@@ -80,7 +80,7 @@ html {
 body {
 	background: url(../img/bg-top.jpg) no-repeat 50% 0;
 	border-top: 4px solid #242840;
-	min-height: 500px;
+	min-height: 200px;
 	line-height: 1.43;
 	font-family: 'Arial', 'Helvetica', sans-serif;
 	color: #77797f;

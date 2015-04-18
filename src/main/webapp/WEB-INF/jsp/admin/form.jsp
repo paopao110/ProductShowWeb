@@ -76,35 +76,60 @@
 					</c:if>
 					
 					<c:if test="${patentPage==true }">
-					<form id="edit-profile" class="form-horizontal" autocomplete="off">
+					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/addPatent?admin" autocomplete="off" method="post">
 						<fieldset>
 							<legend>添加专利信息</legend>
 							<div class="control-group">
-								<label class="control-label" for="input01">产品信息名称</label>
+								<label class="control-label" for="input01">专利名称</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" data-rule="required;"/>
+									<input type="text" class="input-xlarge" id="paName" name="paName" data-rule="required;"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="input01">新密码</label>
+								<label class="control-label" for="input01">申请号</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" data-rule="required;"/>
+									<input type="text" class="input-xlarge" id="paNumber" name="paNumber" data-rule="required;"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="input01">确认新密码</label>
+								<label class="control-label" for="input01">申请日</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" data-rule="required;"/>
+									<input type="text" class="input-xlarge" id="paDate" name="paDate" data-rule="required;"/>
 								</div>
 							</div> 					
 							<div class="control-group">
-								<label class="control-label" for="textarea">Biography</label>
+								<label class="control-label" for="input01">主分类号</label>
 								<div class="controls">
-									<textarea class="input-xlarge" id="textarea" rows="4">Web technology junkie who writes innovative and bestselling technical books. Also enjoys Sunday bicycle rides and all "good" comedy.</textarea>
+									<input type="text" class="input-xlarge" id="paCategory" name="paCategory" data-rule="required;"/>
 								</div>
-							</div>						
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">案件状态</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paState" name="paState" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">申请人</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paPerson" name="paPerson" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">代理信息</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paAgent" name="paAgent" data-rule="required;"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="input01">发明人名称</label>
+								<div class="controls">
+									<input type="text" class="input-xlarge" id="paInventor" name="paInventor" data-rule="required;"/>
+								</div>
+							</div>	
 							<div class="form-actions">
-								<button type="submit" class="btn btn-primary">修改</button> <button class="btn">Cancel</button>
+								<button type="submit" class="btn btn-primary">添加</button> 
+								<button class="btn">清空</button>
 							</div>
 							
 						</fieldset>

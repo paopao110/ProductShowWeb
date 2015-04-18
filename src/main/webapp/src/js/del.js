@@ -42,3 +42,18 @@ function deleteProduct(url){
 		async : false
 	});
 }
+
+//delete message
+function deletePatent(url){
+	if(!confirm("确认删除该条专利信息？")){
+		return;
+	}
+	$.ajax({
+		url:url,
+		success : function(obj) {
+			alert("删除成功！");
+			location.reload();
+		},
+		async : false
+	});
+}

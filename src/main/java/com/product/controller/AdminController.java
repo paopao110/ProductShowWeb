@@ -21,11 +21,13 @@ public class AdminController {
 	
 	@RequestMapping(value="/modifypass",params="admin",method=RequestMethod.POST)
 	public ModelAndView modifyPassword(@ModelAttribute Admin admin,HttpServletRequest request){
-		int flag = adminService.updateAdminByName(admin);
-		if(flag>0){
-			request.setAttribute("modifyPassInfo", GlobleVariables.UPDATE_INFO_SUCCESS);
-		}else{
-			request.setAttribute("modifyPassInfo", GlobleVariables.UPDATE_INFO_FAILURE);
+		if(admin.getaName().trim().length()>0){
+			int flag = adminService.updateAdminByName(admin);
+			if(flag>0){
+				request.setAttribute("modifyPassInfo", GlobleVariables.UPDATE_INFO_SUCCESS);
+			}else{
+				request.setAttribute("modifyPassInfo", GlobleVariables.UPDATE_INFO_FAILURE);
+			}
 		}
 		return new ModelAndView("admin/modify"); 
 	}

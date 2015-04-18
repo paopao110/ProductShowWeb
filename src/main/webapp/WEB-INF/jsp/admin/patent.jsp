@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
 <html lang="en"><!--<![endif]--> 
@@ -31,17 +32,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%for(int i=0;i<5;i++){ %>
+							<c:forEach items="${patents }" var="patent">
 							<tr>
-								<td>Nike</td>
-								<td>Monsters Inc</td>
-								<td>Monsters Inc</td>
-								<td><a href="#">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-									<a href="#">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-									<a href="#">添加图片</a>
+								<td>${patent.paNumber }</td>
+								<td>${patent.paName }</td>
+								<td>${patent.paPerson }</td>
+								<td>
+									<a href="<%=request.getContextPath() %>/${patent.paId }/viewPatent?admin">编辑</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+									<a href="#" onclick="deletePatent('<%=request.getContextPath() %>/${patent.paId }/deletePatent?admin')">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 								</td>
 							</tr>
-							<%} %>
+							</c:forEach>
 						</tbody>
 					</table>
 					<div align="center" class="pagination" id="kkpager"></div>
@@ -50,6 +51,7 @@
 		</div>
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/kkpager.min.js"></script>
-		<script type="text/javascript" src="js/kkpager-message.js"></script>
+		<script type="text/javascript" src="js/kkpager-patent.js"></script>
+		<script type="text/javascript" src="js/del.js"></script>
 	</body>
 </html>
