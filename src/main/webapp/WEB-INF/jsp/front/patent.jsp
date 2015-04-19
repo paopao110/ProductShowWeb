@@ -38,12 +38,14 @@
                     
                     <div class="content column column_50">
 						<ul class="dot">
-							<li>Pretium eget, nulla. Etiam accum! Tristique!</li>
-							<li>Phasellus consequat.</li>
-							<li>Etiam at adipiscing wisi. Donec tortor. </li>
-							<li>Pretium eget, nulla. Etiam accum! Tristique!</li>
-							<li>Phasellus consequat.</li>
-							<li>Etiam at adipiscing wisi. Donec tortor. </li>
+							<li>申请号:&nbsp;&nbsp;2012201781071</li>
+							<li>申请日:&nbsp;&nbsp;2012-04-24</li>
+							<li>主分类号:&nbsp;&nbsp;E01F 5/00</li>
+							<li>案件状态:&nbsp;&nbsp;专利权维持</li>
+							<li>申请人:&nbsp;&nbsp;王改清</li>
+							<li>代理信息:&nbsp;&nbsp;北京世誉鑫诚专利代理事务所（普通合伙）;孙国栋</li>
+							<li>发明人名称:&nbsp;&nbsp;王改清</li>
+							<li><a href="#">点击进入知识产权局</a></li>
 						</ul>
 					</div>
                 </section>

@@ -16,7 +16,7 @@
 				<jsp:include page="common/leftbar.jsp"></jsp:include>
 				<div class="span9">
 					<div class="well summary">
-						<font color="green"><marquee>欢迎来到后台管理！</marquee></font>
+						<font color="green"><marquee>欢迎[<%=session.getAttribute("SESSIONUSERNAME")%>]来到后台管理！</marquee></font>
 					</div>
 					<h2>最近客户留言</h2>
 					<table class="table table-bordered table-striped">

@@ -17,4 +17,6 @@ public class GlobleVariables {
 	
 	public static int SUBMENUCOUNT = 5;
 	public static String MORE_THAN_SUBMENU_COUNT = "<font color='red'>添加类别不得超过"+SUBMENUCOUNT+"个</font>";
+	public static String PASSWORD_ERROR_1 = "<font color='red'>原始密码不正确</font>";
+	public static String PASSWORD_ERROR_2 = "<font color='red'>两次密码输入不一致</font>";
 }

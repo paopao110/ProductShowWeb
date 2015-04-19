@@ -10,9 +10,9 @@
 			<a class="brand" href="index.html">PDK有限公司</a>
 			<div class="nav-collapse">
 				<ul class="nav pull-right">
-					<li><a href="<%=request.getContextPath()%>/modifyPass?admin">惺惺相惜</a></li>
+					<li><a href="<%=request.getContextPath()%>/modifyPass?admin"><%=session.getAttribute("SESSIONUSERNAME")%></a></li>
 					<li><a href="index.html" target="_blank">去往首页</a></li></li>
-					<li><a href="login.htm">退出</a></li>
+					<li><a href="<%=request.getContextPath()%>/logout">退出</a></li>
 				</ul>
 			</div>
 		</div>

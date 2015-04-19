@@ -38,7 +38,7 @@
 									<input type="text" class="input-xlarge" id="rnPasswd" name="rnPasswd" data-rule="required;"/>
 								</div>
 							</div>		
-							<input type="hidden" class="input-xlarge" id="aName" name="aName" value="<%=session.getAttribute("ADMINUSERSESSION")%>"/>			
+							<input type="hidden" class="input-xlarge" id="aName" name="aName" value="<%=session.getAttribute("SESSIONUSERNAME")%>"/>			
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">修改</button> 
 								<button type="reset" class="btn">清空</button>
@@ -59,25 +59,25 @@
 							<div class="control-group">
 								<label class="control-label" for="input01">称呼</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" value="${msg.mUsername }" />
+									<input type="text" class="input-xlarge" disabled="disabled" id="input01" value="${msg.mUsername }" />
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="input01">联系电话</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" value="${msg.mTel}" />
+									<input type="text" class="input-xlarge" disabled="disabled" id="input01" value="${msg.mTel}" />
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="input01">E-mail</label>
 								<div class="controls">
-									<input type="text" class="input-xlarge" id="input01" value="${msg.mEmail}" />
+									<input type="text" class="input-xlarge" disabled="disabled" id="input01" value="${msg.mEmail}" />
 								</div>
 							</div>					
 							<div class="control-group">
 								<label class="control-label" for="textarea">留言信息</label>
 								<div class="controls">
-									<textarea class="input-xlarge" id="textarea" rows="4">${msg.mContent }</textarea>
+									<textarea class="input-xlarge" id="textarea" disabled="disabled" rows="4">${msg.mContent }</textarea>
 								</div>
 							</div>
 						</fieldset>
@@ -204,7 +204,6 @@
 							<input type="hidden"  id="paId" name="paId" value="${patent.paId }"/>
 							<div class="form-actions">
 								<button type="submit" class="btn btn-primary">修改</button> 
-								<button class="btn">清空</button>
 							</div>
 							
 						</fieldset>
