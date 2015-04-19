@@ -50,7 +50,7 @@ CREATE TABLE `tb_images` (
   `i_url` varchar(255) NOT NULL DEFAULT '',
   `i_description` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`i_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 
 #
 # Source for table tb_message
@@ -64,7 +64,7 @@ CREATE TABLE `tb_message` (
   `m_email` varchar(255) NOT NULL DEFAULT '',
   `m_content` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 #
 # Source for table tb_news
@@ -79,6 +79,24 @@ CREATE TABLE `tb_news` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 #
+# Source for table tb_patent
+#
+
+DROP TABLE IF EXISTS `tb_patent`;
+CREATE TABLE `tb_patent` (
+  `pa_id` int(11) NOT NULL AUTO_INCREMENT,
+  `pa_name` varchar(255) NOT NULL DEFAULT '',
+  `pa_number` varchar(255) NOT NULL DEFAULT '',
+  `pa_date` varchar(255) NOT NULL DEFAULT '',
+  `pa_category` varchar(255) NOT NULL DEFAULT '',
+  `pa_state` varchar(255) NOT NULL DEFAULT '',
+  `pa_person` varchar(255) NOT NULL DEFAULT '',
+  `pa_agent` varchar(255) NOT NULL DEFAULT '',
+  `pa_inventor` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`pa_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+#
 # Source for table tb_product
 #
 
@@ -90,7 +108,7 @@ CREATE TABLE `tb_product` (
   `p_summary` varchar(255) NOT NULL DEFAULT '',
   `p_content` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`p_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 #
 # Source for table tb_submenu
@@ -101,7 +119,7 @@ CREATE TABLE `tb_submenu` (
   `s_id` int(11) NOT NULL AUTO_INCREMENT,
   `s_title` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`s_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
