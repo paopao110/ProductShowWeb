@@ -19,7 +19,7 @@
 				<c:if test="${user!=null}">
 					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/modifypass?admin"  autocomplete="off" method="post">
 						<fieldset>
-							<legend><a href="#" onclick="history.go(-1)">返回</a>&nbsp;>&nbsp;修改信息</legend>
+							<legend><a href="javascript:" onclick="self.location=document.referrer;">返回</a>&nbsp;>&nbsp;修改信息</legend>
 							<div class="control-group">
 								<label class="control-label" for="input01">原始密码(<font color="red">必填</font>)</label>
 								<div class="controls">
@@ -48,14 +48,14 @@
 					</c:if>
 					<c:if test="${modifyPassInfo!=null}">
 						<fieldset>
-							<legend><a href="#" onclick="history.go(-1)">返回</a>&nbsp;>&nbsp;密码修改结果</legend>
+							<legend><a href="javascript:" onclick="self.location=document.referrer;">返回</a>&nbsp;>&nbsp;密码修改结果</legend>
 						<div align="center">${modifyPassInfo }</div>
 						</fieldset>
 					</c:if>
 					<c:if test="${msg!=null}">
 						<form id="edit-profile" class="form-horizontal">
 						<fieldset>
-							<legend><a href="#" onclick="history.go(-1)">返回</a>&nbsp;>&nbsp;客户留言信息</legend>
+							<legend><a href="javascript:" onclick="self.location=document.referrer;">返回</a>&nbsp;>&nbsp;客户留言信息</legend>
 							<div class="control-group">
 								<label class="control-label" for="input01">称呼</label>
 								<div class="controls">
@@ -86,7 +86,7 @@
 					<c:if test="${submenu!=null }">
 					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/updateSubmenu?admin" autocomplete="off" method="post">
 						<fieldset>
-							<legend><a href="#" onclick="history.go(-1)">返回</a>&nbsp;>&nbsp;产品类别</legend>
+							<legend><a href="javascript:" onclick="self.location=document.referrer;">返回</a>&nbsp;>&nbsp;产品类别</legend>
 							<div class="control-group">
 								<label class="control-label" for="input01">产品类别名称(<font color="red">必填</font>)</label>
 								<div class="controls">
@@ -104,7 +104,7 @@
 					<c:if test="${product!=null}">
 						<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/updateProduct?admin" autocomplete="off" method="post">
 						<fieldset>
-							<legend><a href="#" onclick="history.go(-1)">返回</a>&nbsp;>&nbsp;产品信息</legend>
+							<legend><a href="javascript:" onclick="self.location=document.referrer;">返回</a>&nbsp;>&nbsp;产品信息</legend>
 							<div class="control-group">
 								<label class="control-label" for="input01">产品信息名称(<font color="red">必填</font>)</label>
 								<div class="controls">
@@ -152,7 +152,7 @@
 					<c:if test="${patent!=null}">
 					<form id="edit-profile" class="form-horizontal" action="<%=request.getContextPath() %>/updatePatent?admin" autocomplete="off" method="post">
 						<fieldset>
-							<legend>修改专利信息</legend>
+							<legend><a href="javascript:" onclick="self.location=document.referrer;">返回</a>&nbsp;>&nbsp;修改专利信息</legend>
 							<div class="control-group">
 								<label class="control-label" for="input01">专利名称</label>
 								<div class="controls">

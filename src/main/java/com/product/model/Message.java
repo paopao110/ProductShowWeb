@@ -11,6 +11,8 @@ public class Message {
     
     private String mContent;
 
+    private Integer mFlag;
+    
     public Integer getmId() {
         return mId;
     }
@@ -50,4 +52,13 @@ public class Message {
     public void setmContent(String mContent) {
         this.mContent = mContent == null ? null : mContent.trim();
     }
+
+	public Integer getmFlag() {
+		return mFlag;
+	}
+
+	public void setmFlag(Integer mFlag) {
+		this.mFlag = mFlag;
+	}
+    
 }

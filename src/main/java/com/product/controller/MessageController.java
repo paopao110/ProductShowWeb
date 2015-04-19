@@ -49,6 +49,12 @@ public class MessageController {
 	public ModelAndView viewMessage(@PathVariable Integer mId,HttpServletRequest request){
 		Message msg = messageService.queryMessageById(mId);
 		request.setAttribute("msg", msg);
+		if(msg.getmFlag()==0){
+			Message message = new Message();
+			message.setmId(mId);
+			message.setmFlag(1);
+			messageService.updateMessageById(message);
+		}
 		return new ModelAndView("admin/modify");
 	}
 	

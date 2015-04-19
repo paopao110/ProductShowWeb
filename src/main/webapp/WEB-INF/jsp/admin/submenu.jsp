@@ -16,9 +16,11 @@
 				<jsp:include page="common/leftbar.jsp"></jsp:include>
 				<div class="span9">
 					<h2>类别管理</h2>
+					<c:if test="${submenu.size()<5 }">
 					<div align="right">
 						<a class="btn btn-primary" href="<%=request.getContextPath() %>/addSubmenuPage?admin">添加类别</a>
 					</div>
+					</c:if>
 					<table class="table table-bordered table-striped">
 						
 						<thead>

@@ -25,9 +25,8 @@
 								<th>留言编号</th>
 								<th>客户名称</th>
 								<th>联系电话</th>
-								<th>
-									相关操作
-								</th>
+								<th>状态</th>
+								<th>相关操作</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -36,6 +35,7 @@
 								<td>${msg.mId }</td>
 								<td>${msg.mUsername }</td>
 								<td>${msg.mTel}</td>
+								<td><c:if test="${msg.mFlag==0}"><font color="red">未查看</font></c:if><c:if test="${msg.mFlag==1}"><font color="green">已查看</font></c:if></td>
 								<td><a href="<%=request.getContextPath()%>/${msg.mId }/viewMsg?admin">查看</a></td>
 							</tr>
 							</c:forEach>

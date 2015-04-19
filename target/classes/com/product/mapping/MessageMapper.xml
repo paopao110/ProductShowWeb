@@ -7,16 +7,17 @@
     <result column="m_tel" property="mTel" jdbcType="VARCHAR" />
     <result column="m_email" property="mEmail" jdbcType="VARCHAR" />
     <result column="m_content" property="mContent" jdbcType="VARCHAR" />
+    <result column="m_flag" property="mFlag" jdbcType="VARCHAR" />
   </resultMap>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select m_id, m_username, m_tel, m_email, m_content from tb_message
+    select m_id, m_username, m_tel, m_email, m_content,m_flag from tb_message
     where m_id = #{mId,jdbcType=INTEGER}
   </select>
   
   <select id="selectByPaging" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select m_id, m_username, m_tel,m_content from tb_message 
-    order by m_id desc limit #{param1},#{param2}
+    select m_id, m_username, m_tel,m_content,m_flag from tb_message
+    order by m_flag limit #{param1},#{param2}
   </select>
   
   <select id="selectCount" resultType="Integer">
@@ -35,6 +36,7 @@
       <if test="mTel != null"> m_tel,</if>
       <if test="mEmail != null"> m_email,</if>
       <if test="mContent != null"> m_content,</if>
+      <if test="mFlag != null"> m_flag,</if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="mId != null">#{mId,jdbcType=INTEGER},</if>
@@ -42,6 +44,7 @@
       <if test="mTel != null">#{mTel,jdbcType=VARCHAR},</if>
       <if test="mEmail != null">#{mEmail,jdbcType=VARCHAR},</if>
       <if test="mContent != null">#{mContent,jdbcType=VARCHAR},</if>
+      <if test=" mFlag != null">#{mContent,jdbcType=VARCHAR},</if>
     </trim>
   </insert>
   
@@ -52,6 +55,7 @@
       <if test="mTel != null">m_tel = #{mTel,jdbcType=VARCHAR},</if>
       <if test="mEmail != null">m_email = #{mEmail,jdbcType=VARCHAR},</if>
       <if test="mContent != null">m_content = #{mContent,jdbcType=VARCHAR},</if>
+      <if test="mFlag != null">m_flag = #{mFlag,jdbcType=VARCHAR},</if>
     </set>
     where m_id = #{mId,jdbcType=INTEGER}
   </update>
