@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -36,16 +37,13 @@
 
 
 			<div class="column article">
-				<h1>产品名称 XXXXX </h1>
-				
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vestibulum, dolor sit amet, varius laoreet. Morbi justo. <strong>Phasellus adipiscing</strong>. Nunc vitae arcu magna, gravida wisi id lacus. Vivamus est ullamcorper orci a adipiscing gravida tempor, tortor lacus tellus enim, malesuada augue pulvinar mollis, purus dolor vel lorem ligula, in tortor metus nec turpis et lectus. Mauris nec adipiscing elit.</p>
-
-				<p>Sed in velit vitae lorem semper risus. Etiam at libero. Cum sociis natoque penatibus et ultrices posuere vitae, sollicitudin eu, eleifend tincidunt, mi libero, pulvinar mollis. Nulla facilisi. Phasellus sagittis eu, dapibus eu, rhoncus suscipit. Suspendisse pede. Sed egestas sodales, augue nec velit. Nullam augue nec</p>
-				
-				<cite>Integer adipiscing. Mauris imperdiet faucibus orci ut massa. Nam lacus. Vivavel turpis tellus, condimentum urna, placerat consequat.</cite>
-				
-
-				<p>Nunc neque, fringilla at, mattis feugiat eget, suscipit id, luctus et netus et ultrices posuere, tempor id, orci. Cum sociis natoque penatibus et imperdiet dignissim id, tortor. Phasellus vitae mauris. Cras nec eros. Fusce in nulla erat sed massa. Maecenas lacus. Nullam wisi bibendum sem, vulputate aliquam eget, orci.</p>
+				<h1>${product.pTitle}</h1>
+				<p>${product.pContent}</p>
+				<c:forEach items="${listImages}" var="img">
+					<p><img alt="" src="${img.iUrl}"> </p>
+					<p>${img.iDescription}</p>
+				</c:forEach>
+			<!-- 	<cite>Integer adipiscing. Mauris imperdiet faucibus orci ut massa. Nam lacus. Vivavel turpis tellus, condimentum urna, placerat consequat.</cite> -->
 			
 			</div>
 

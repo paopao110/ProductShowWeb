@@ -1,6 +1,7 @@
 package com.product.service;
 
 import java.util.List;
+
 import com.product.model.Product;
 
 public interface ProductServiceI {
@@ -11,4 +12,5 @@ public interface ProductServiceI {
 	List<Product> queryProductByPaging(Integer begin,Integer number);
 	Product queryProductById(Integer id);
 	int queryCount();
+	List<Product> productsBysId(Integer sId);
 }

@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.*" %>
+<%@ page import="com.product.model.*" %>
+<%
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -6,6 +11,15 @@
 	<jsp:include page="common/headerSrc.jsp"></jsp:include>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
+<script type="text/javascript">
+		
+		function getProducts(els){
+			var url = els.href;
+			$.post(url,"",function(data){
+				
+			});
+		};
+</script>
 <body>
 
 <div id="page">
@@ -15,33 +29,34 @@
 	<!-- END TITLEBAR -->
 
 	<!-- BEGIN ARTICLE -->
+	<div id="proBysub">
 	<article class="blog page_text" id="content">
-		<%for(int i=0;i<3;i++){ %>
 		<!-- START POST 1 -->
 		<div class="post columns">
 
 			<div class="column column_25">
-				<img src="<%=request.getContextPath()%>/src/img/examples/blog_small_4.jpg" alt="In eros ultrices posuere risus." width="180" height="124" />
+				<img src="<%=request.getContextPath()%>/src/img/examples/portfolio_big_3.jpg" alt="In eros ultrices posuere risus." width="180" height="124" />
 				<p class="icon comments">
-					<a href="#"><strong> 说明<%=i %></strong></a>
+					<a href="#"><strong> 说明</strong></a>
 				</p>
 			</div>
 
 			<div class="column description">
 
 				<!-- <p class="icon date">21.11.2011</p> -->
+				<c:forEach items="${listProduct}" var="product">
+					<p>&nbsp;</p>
+					<h2>${product.pTitle }</h2>
+					<p>${product.pSummary}</p>
+					<p class="more"><a href="<%=request.getContextPath() %>/product_full?productId=${product.pId }">查看更多</a></p>
+				</c:forEach>
 				
-				<h2>产品<%switch(i){case 0:%>一<%break;case 1:%>二<%break;case 2: %>三<%break;}%></h2>
-				
-				<p>产品相关简介 <strong>产品相关简介</strong>. 产品相关简介.</p>
-			
-				<p class="more"><a href="<%=request.getContextPath() %>/product_full">查看更多</a></p>
 			
 			</div>
+			
 
 		</div>
 		<!-- END POST 1 -->
-		<%} %>
 		
 		<section class="pagination">
 			<a class="prev">&nbsp;</a>
@@ -54,6 +69,7 @@
 		</section>
 
 	</article>
+	</div>
 	<!-- END ARTICLE -->
 
 	

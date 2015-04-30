@@ -25,9 +25,15 @@
   </resultMap>
 
   <select id="selectByPrimaryKey" resultMap="ProductResultMap" parameterType="java.lang.Integer" >
-    select p.p_id, p.s_id,s.s_title,p_title, p_summary,p_content 
-    from tb_product as p,tb_submenu as s 
-    where p.p_id = #{pId,jdbcType=INTEGER} and p.s_id=s.s_id
+    select p.p_id, p.s_id,p_title, p_summary,p_content 
+    from tb_product as p 
+    where p.p_id = #{pId,jdbcType=INTEGER} 
+  </select>
+  
+   <select id="productsBysId" resultMap="ProductResultMap" parameterType="java.lang.Integer" >
+    select p.p_id, p.s_id,p_title, p_summary,p_content 
+    from tb_product as p 
+    where p.s_id = #{pId,jdbcType=INTEGER} 
   </select>
   
   <select id="selectCount" resultType="java.lang.Integer" >
