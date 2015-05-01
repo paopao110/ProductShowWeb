@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -157,16 +158,16 @@
 	<section class="home_info page_text columns">
 		<p></p>
 		<h1><strong>技术专利</strong></h1>
-		<%for(int i=0;i<3;i++){ %>
-		<a href="<%=request.getContextPath() %>/patent_full" class="column column_33">
-			<h1><strong>专利一</strong></h1>
+		<c:forEach items="${patents }" var="patent">
+		<a href="http://publicquery.sipo.gov.cn/txn801507.do?select-key:startPage=0&select-key:endPage=5&select-key:currentPageNo=1&select-key:famingmc=&select-key:shenqingh=${patent.paNumber } " target="_blank" class="column column_33">
+			<h1><strong>${patent.paName }</strong></h1>
 			<span class="arrow"></span>
-			<img src="<%=request.getContextPath() %>/src/img/examples/blog_latest_small_3.jpg" alt="" />
+			<img src="<%=request.getContextPath() %>/src/img/examples/blog_small_4.jpg" alt="" />
 			<!-- <header></header> -->
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Odio, a quam at justo. Aenean commodo wisi. Sed diam felis, feugiat tempus.</p>
-			
+			<p class="icon date" style="text-align: left">申请号:&nbsp;&nbsp;${patent.paNumber}</p>
+			<p class="icon date" style="text-align: left">发明人名称:&nbsp;&nbsp;${patent.paInventor }</p>
 		</a>
-		<%} %>
+		</c:forEach>
 	</section>
 	<!-- END INFORMATIONS -->
 
@@ -183,14 +184,16 @@
 
 		<div id="slider_portfolio">
 			<ul>
-				<%for(int i=0;i<3;i++) {%>
+				<c:forEach items="${listProduct }" var="product">
 				<li class="column">
-					<a href="<%=request.getContextPath() %>/product_full">
-						<span></span>
-						<img src="<%=request.getContextPath() %>/src/img/examples/portfolio_small_1.jpg" alt="" />
+					<a href="<%=request.getContextPath() %>/${product.pId }/product_full" target="_blank">
+						<img src="<%=request.getContextPath() %>/src/img/examples/blog_small_4.jpg" alt="" />
+						<hr/>
+						<strong style="text-align: left">产品名称:&nbsp;&nbsp;${product.pTitle}</strong>
 					</a>
+					
 				</li>
-				<%} %>
+				</c:forEach>
 			</ul>
 		</div>
 

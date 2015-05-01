@@ -50,9 +50,13 @@ public class ProductServiceImpl implements ProductServiceI{
 		return productMapper.selectCount();
 	}
 
-	public List<Product> productsBysId(Integer sId) {
+	public List<Product> productsBysId(Integer sId,Integer begin,Integer number) {
 		if(sId==null) return null;
-		return productMapper.productsBysId(sId);
+		return productMapper.productsBysId(sId,begin,number);
+	}
+
+	public int queryCountWithSubmenu(Integer sId) {
+		return productMapper.selectCountWithSubmenu(sId);
 	}
 	
 }

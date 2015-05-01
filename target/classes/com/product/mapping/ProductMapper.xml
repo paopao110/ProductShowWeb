@@ -31,13 +31,16 @@
   </select>
   
    <select id="productsBysId" resultMap="ProductResultMap" parameterType="java.lang.Integer" >
-    select p.p_id, p.s_id,p_title, p_summary,p_content 
-    from tb_product as p 
-    where p.s_id = #{pId,jdbcType=INTEGER} 
+    select p.p_id, p.s_id,p_title, p_summary,p_content,s.s_title 
+    from tb_product as p ,tb_submenu as s 
+    where p.s_id=s.s_id and p.s_id = #{param1,jdbcType=INTEGER} limit #{param2},#{param3}
   </select>
   
   <select id="selectCount" resultType="java.lang.Integer" >
     select count(p_id) from tb_product
+  </select>
+  <select id="selectCountWithSubmenu" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+    select count(p_id) from tb_product where s_id=#{param1}
   </select>
   
   <select id="selectByPaging" resultMap="ProductResultMap" parameterType="java.lang.Integer" >

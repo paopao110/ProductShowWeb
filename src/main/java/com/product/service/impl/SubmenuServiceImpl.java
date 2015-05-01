@@ -42,4 +42,8 @@ public class SubmenuServiceImpl implements SubmenuServiceI{
 		return submenuMapper.selectCount();
 	}
 
+	public List<Submenu> queryAllSubmenuWithProduct() {
+		return submenuMapper.selectAllSubmenuWithProduct();
+	}
+
 }

@@ -143,6 +143,11 @@
 /* = Sidebar
 -------------------------------------------------------------- */
 
+#productsidebar {
+	float: right;
+	width: 20%px;
+}
+
 #sidebar {
 	float: right;
 	width: 235px;

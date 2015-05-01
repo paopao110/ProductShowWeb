@@ -12,5 +12,6 @@ public interface ProductServiceI {
 	List<Product> queryProductByPaging(Integer begin,Integer number);
 	Product queryProductById(Integer id);
 	int queryCount();
-	List<Product> productsBysId(Integer sId);
+	int queryCountWithSubmenu(Integer sId);
+	List<Product> productsBysId(Integer sId,Integer begin,Integer number);
 }

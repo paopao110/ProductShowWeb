@@ -12,4 +12,5 @@ public interface SubmenuMapper {
     Submenu selectByPrimaryKey(Integer sId);
     int selectCount();
     List<Submenu> selectAllSubmenu();
+    List<Submenu> selectAllSubmenuWithProduct();
 }

@@ -14,47 +14,27 @@
 	<!-- BEGIN TITLEBAR -->
 	<jsp:include page="common/header/header_product.jsp"></jsp:include>
 	<!-- END TITLEBAR -->
-
-
 	<!-- BEGIN ARTICLE -->
-	<article class="blog full page_text" id="content">
-
-		<header>
-			<img src="<%=request.getContextPath()%>/src/img/examples/blog_big.jpg" alt="" />
-		</header>
-
+	<article class="productblog full page_text" id="content">
 		<div class="columns">
-		
-			<div class="column column_25">
-				<p class="icon date">21.11.2011</p>
+			<div class="productcolumn article">
+				<p class="icon date">产品名称 :${product.pTitle}</p>
+				<p class="icon date">产品简介 :${product.pSummary}</p>
 
-				<p class="icon user">NewCore</p>
-
-				<p class="icon comments">
-					<a href="#"><strong>4</strong> comments</a>
-				</p>
-			</div>
-
-
-			<div class="column article">
-				<h1>${product.pTitle}</h1>
-				<p>${product.pContent}</p>
+				<p class="icon date">产品描述 :</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${product.pContent}</p>
 				<c:forEach items="${listImages}" var="img">
-					<p><img alt="" src="${img.iUrl}"> </p>
+					<p><img alt="" src="<%=request.getContextPath()%>/upload/${img.iUrl}" width="100%"> </p>
 					<p>${img.iDescription}</p>
 				</c:forEach>
-			<!-- 	<cite>Integer adipiscing. Mauris imperdiet faucibus orci ut massa. Nam lacus. Vivavel turpis tellus, condimentum urna, placerat consequat.</cite> -->
-			
 			</div>
 
 		</div>
-		
-		
 	</article>
 	<!-- END ARTICLE -->
 	
 	<!-- START SIDEBAR -->
-	<jsp:include page="common/rightbar.jsp"></jsp:include>	
+	<jsp:include page="common/rightbar.jsp"></jsp:include>
 	<!-- END SIDEBAR -->
 	
 </div>

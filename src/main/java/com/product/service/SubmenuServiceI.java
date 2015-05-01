@@ -6,6 +6,7 @@ import com.product.model.Submenu;
 
 public interface SubmenuServiceI {
 	List<Submenu> queryAllSubmenu();
+	List<Submenu> queryAllSubmenuWithProduct();
 	Submenu querySubmenuById(Integer id);
 	int queryCount();
 	int updateSubmenuById(Submenu submenu);

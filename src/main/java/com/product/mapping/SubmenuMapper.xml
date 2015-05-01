@@ -14,6 +14,10 @@
     select s_id, s_title from tb_submenu
   </select>
   
+  <select id="selectAllSubmenuWithProduct" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select distinct s.s_id, s_title from tb_submenu as s,tb_product as p where s.s_id=p.s_id
+  </select>
+  
   <select id="selectCount" resultType="java.lang.Integer" >
     select count(s_id) from tb_submenu
   </select>
